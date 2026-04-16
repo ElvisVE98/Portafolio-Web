@@ -1,0 +1,267 @@
+/*
+ * base.css — Variables globales, reset y componentes reutilizables
+ * =================================================================
+ * Todo lo que se usa en MÁS DE UNA sección vive aquí.
+ * Si algo solo aplica a una sección, va en el archivo CSS de esa sección.
+ *
+ * Contenido:
+ *   1. Variables CSS (:root)
+ *   2. Reset universal (*)
+ *   3. Body
+ *   4. Utilidades (.container, .highlight, section, .section-title)
+ *   5. Componentes compartidos (.glass-card, .badge, .btn, .skills-*)
+ */
+
+
+/* =================================================================
+   1. VARIABLES CSS — Paleta de colores y medidas globales
+   =================================================================
+   Las variables CSS (custom properties) permiten cambiar un valor
+   en UN solo lugar y que se actualice en TODO el sitio.
+   Están definidas en :root (el elemento raíz = <html>) para que
+   sean accesibles desde cualquier regla CSS con var(--nombre).
+
+   PARA CAMBIAR LOS COLORES DEL SITIO: edita solo aquí.
+   ================================================================= */
+:root {
+    --bg-color:        #0f172a;                  /* Fondo oscuro principal de la página */
+    --card-bg:         rgba(30, 41, 59, 0.7);    /* Fondo semitransparente de las tarjetas */
+    --accent-primary:  #38bdf8;                  /* Azul  — tecnologías, links, botones CTA */
+    --accent-secondary:#818cf8;                  /* Violeta — títulos secundarios, logros */
+    --accent-tertiary: #2dd4bf;                  /* Verde  — automatización, datos */
+    --text-main:       #f8fafc;                  /* Texto principal (casi blanco) */
+    --text-muted:      #94a3b8;                  /* Texto secundario (gris azulado) */
+    --glass-border:    1px solid rgba(255, 255, 255, 0.1); /* Borde sutil de las tarjetas */
+    --gradient-text:   linear-gradient(135deg, #38bdf8 0%, #818cf8 100%); /* Gradiente azul-violeta */
+    --nav-height:      70px;                     /* Altura de la barra de navegación */
+}
+
+
+/* =================================================================
+   2. RESET UNIVERSAL
+   =================================================================
+   * selecciona TODOS los elementos HTML.
+   Elimina el margen y padding por defecto del navegador
+   (cada navegador tiene valores distintos, esto los normaliza).
+   box-sizing: border-box hace que padding y border se incluyan
+   DENTRO del width/height declarado — más predecible.
+   ================================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Navegación suave al hacer clic en anclas (#seccion) */
+}
+
+
+/* =================================================================
+   3. BODY — Estilo base de la página completa
+   ================================================================= */
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    overflow-x: hidden; /* Evita scroll horizontal accidental */
+
+    /*
+     * Dos gradientes radiales decorativos en las esquinas:
+     * uno azul arriba-izquierda, uno violeta abajo-derecha.
+     * Son muy sutiles (10% de opacidad) para no competir con el contenido.
+     */
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.1)  0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.1) 0%, transparent 40%);
+}
+
+
+/* =================================================================
+   4. UTILIDADES — Clases de uso general
+   ================================================================= */
+
+/*
+ * .container — Centra el contenido y lo limita a 1100px de ancho.
+ * Casi todos los bloques de contenido están envueltos en un .container.
+ */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/*
+ * .highlight — Texto con gradiente azul→violeta.
+ * Usado en los títulos <h2> de cada sección: "Proyectos <span class="highlight">Destacados</span>"
+ * Requiere -webkit-background-clip para que el gradiente se vea
+ * recortado por la forma de las letras.
+ */
+.highlight {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/*
+ * section — Espaciado vertical estándar para todas las secciones.
+ * position: relative permite que los elementos hijos usen
+ * position: absolute en relación a la sección.
+ */
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+/*
+ * .section-title — Estilo estándar para los <h2> de cada sección.
+ * Centraliza el tamaño y espacio inferior para no repetirlo inline.
+ */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+
+/* =================================================================
+   5. COMPONENTES COMPARTIDOS
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   .glass-card — Tarjeta con efecto glassmorphism (vidrio esmerilado)
+   -----------------------------------------------------------------
+   backdrop-filter: blur() crea el efecto de desenfoque detrás
+   de la tarjeta, dando la ilusión de vidrio translúcido.
+   Se usa en experiencia, certificaciones y proyectos.
+   ----------------------------------------------------------------- */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Compatibilidad con Safari */
+    border: var(--glass-border);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;    /* Asegura igual altura en grids */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efecto hover: sube la tarjeta y agrega resplandor azul */
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+/* -----------------------------------------------------------------
+   .badge — Etiqueta pequeña redondeada
+   Usada en el hero ("Disponible para nuevos retos") y en proyectos ("PROYECTO ESTRELLA")
+   ----------------------------------------------------------------- */
+.badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-primary);
+    border-radius: 50px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* -----------------------------------------------------------------
+   .btn — Botón base con estilos compartidos
+   Variantes: .btn-primary (fondo gradiente) y .btn-outline (borde)
+   ----------------------------------------------------------------- */
+.btn {
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: var(--gradient-text);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-main);
+}
+
+/* -----------------------------------------------------------------
+   .skills-* — Chips/tags de habilidades
+   Usados en el hero (habilidades) y en certificaciones (temas)
+   ----------------------------------------------------------------- */
+
+/* Grupo que envuelve label + lista de skills */
+.skills-group {
+    margin-bottom: 20px;
+}
+
+/* Etiqueta encima de cada grupo ("DESARROLLO WEB & BACKEND") */
+.skills-label {
+    font-family: 'JetBrains Mono';
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Contenedor flex que organiza los chips en fila */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Chip individual de habilidad */
+.skill-tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+/* Variante azul (tecnologías web) */
+.skill-tag.tech:hover {
+    border-color: var(--accent-primary);
+    background: rgba(56, 189, 248, 0.1);
+}
+
+/* Variante verde (automatización/datos) */
+.skill-tag.data:hover {
+    border-color: var(--accent-tertiary);
+    background: rgba(45, 212, 191, 0.1);
+}
+
+/* Variante violeta (habilidades blandas) */
+.skill-tag.soft:hover {
+    border-color: var(--accent-secondary);
+    background: rgba(129, 140, 248, 0.1);
+}

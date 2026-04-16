@@ -1,0 +1,58 @@
+<!--
+  nav.html — Componente: Barra de Navegación
+  ==========================================
+  Este fragmento HTML se inyecta en <div id="nav-container"> de index.html
+  mediante JavaScript (ver src/ts/loader.ts).
+
+  Estructura:
+    <header> → Cabecera semántica del sitio
+      <nav>  → Navegación principal
+
+  CÓMO EDITAR:
+    - Logo: cambia el texto en <div class="logo">
+    - Links: edita texto y href de cada <a> dentro de .nav-links
+    - Para agregar una sección nueva al menú:
+        <a href="#nueva-seccion">Nombre Sección</a>
+      (el id debe coincidir con el de la nueva <section>)
+
+  NOTA: Los onclick han sido reemplazados por event listeners
+  en src/ts/navigation.ts para mantener HTML y JS separados.
+-->
+
+<header>
+    <nav>
+        <div class="container nav-content">
+
+            <!-- Logo / nombre del desarrollador en la barra -->
+            <div class="logo">
+                <!-- .logo-accent aplica el color azul al sufijo (ver nav.css) -->
+                Elvis Velasquez<span class="logo-accent">.desarrollador</span>
+            </div>
+
+            <!--
+              Botón hamburguesa (ícono de menú).
+              Solo es visible en móvil (display: none en desktop via nav.css).
+              El evento click se registra en navigation.ts, no aquí.
+            -->
+            <div class="menu-toggle">
+                <!-- data-feather="menu" → feather.replace() lo convierte en un SVG -->
+                <i data-feather="menu" style="width: 28px; height: 28px;"></i>
+            </div>
+
+            <!--
+              Lista de links de navegación.
+              id="navLinks" → navigation.ts usa este id para agregar/quitar
+              la clase "active" que controla si el menú es visible en móvil.
+            -->
+            <div class="nav-links" id="navLinks">
+                <!-- href="#seccion" → navega al elemento con ese id en index.html -->
+                <a href="#hero">Sobre mí</a>
+                <a href="#experience">Experiencia</a>
+                <a href="#certifications">Certificaciones</a>
+                <a href="#projects">Proyectos</a>
+                <a href="#contact">Contacto</a>
+            </div>
+
+        </div>
+    </nav>
+</header>

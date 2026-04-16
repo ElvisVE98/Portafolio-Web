@@ -1,0 +1,159 @@
+/*
+ * hero.css — Sección de presentación principal
+ * =============================================
+ * Contiene todos los estilos exclusivos de la sección #hero:
+ * el grid de dos columnas, la foto animada, el título principal
+ * y los grupos de habilidades.
+ *
+ * Secciones:
+ *   1. Layout principal del hero
+ *   2. Foto de perfil y animación blob
+ *   3. Tipografía del hero (h1, descripción)
+ *   4. Botones CTA (los estilos .btn base están en base.css)
+ */
+
+
+/* =================================================================
+   1. LAYOUT PRINCIPAL
+   =================================================================
+   min-height: 100vh → La sección ocupa al menos toda la pantalla.
+   padding-top: var(--nav-height) → Compensa la altura del nav fijo
+   para que el contenido no quede tapado por la barra de navegación.
+   ================================================================= */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: var(--nav-height);
+}
+
+/*
+ * Grid de dos columnas: texto (60%) | foto (40%)
+ * 1.2fr + 0.8fr = 2fr total (proporción 60/40)
+ */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 100%;
+}
+
+
+/* =================================================================
+   2. FOTO DE PERFIL Y ANIMACIÓN BLOB
+   =================================================================
+   El "blob" es la forma orgánica animada que aparece detrás de
+   la foto. Se crea con border-radius con múltiples valores que
+   definen curvas asimétricas, y se anima cambiando esos valores.
+   ================================================================= */
+
+/* Contenedor que posiciona blob e imagen juntos */
+.profile-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Forma decorativa animada (solo CSS, sin contenido) */
+.profile-blob {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(129, 140, 248, 0.2));
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; /* 8 valores = curvas asimétricas */
+    animation: blob-bounce 8s infinite ease-in-out;
+    z-index: 1; /* Detrás de la foto */
+}
+
+/* La foto se superpone al blob */
+.profile-img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;      /* Recorta la imagen para llenar el círculo sin distorsión */
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;             /* Encima del blob */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/*
+ * @keyframes define los fotogramas de una animación.
+ * blob-bounce cambia los border-radius para crear movimiento orgánico.
+ * 0% = inicio, 50% = mitad, 100% = vuelve al inicio (ciclo infinito).
+ */
+@keyframes blob-bounce {
+    0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+    100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+
+/* =================================================================
+   3. TIPOGRAFÍA DEL HERO
+   ================================================================= */
+
+/*
+ * clamp(min, ideal, max) adapta el tamaño según el viewport:
+ *   - Nunca menor a 2.2rem
+ *   - Idealmente 5vw (5% del ancho de pantalla)
+ *   - Nunca mayor a 4.5rem
+ * Esto reemplaza la necesidad de media queries para el h1.
+ */
+h1 {
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    font-weight: 800;
+}
+
+/* Párrafo de descripción personal */
+.hero-desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+
+/* =================================================================
+   4. BOTONES CTA (Call To Action)
+   =================================================================
+   Los estilos base .btn, .btn-primary, .btn-outline están en base.css.
+   Aquí solo está el contenedor que agrupa los botones.
+   ================================================================= */
+.cta-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* En pantallas pequeñas los botones pasan a segunda línea */
+}
+
+
+/* =================================================================
+   5. CONTENEDOR DE GRUPOS DE HABILIDADES
+   =================================================================
+   El <div> que envuelve ambos grupos de skills (Desarrollo Web y Datos).
+   margin-top separa visualmente el bloque de habilidades de los botones CTA.
+   ================================================================= */
+.skills-wrapper {
+    margin-top: 50px;
+}
+
+/*
+ * .skills-label--data — Variante del label de grupo en color verde.
+ * Se usa en el grupo "Automatización & Datos" para diferenciarlo
+ * visualmente del grupo web (que usa el color gris predeterminado).
+ * Sobreescribe el color de .skills-label (definida en base.css).
+ */
+.skills-label--data {
+    color: var(--accent-tertiary);
+}

@@ -1,0 +1,168 @@
+/*
+ * certifications.css — Sección de certificaciones y cursos
+ * =========================================================
+ * Las certificaciones se muestran en un grid responsivo que
+ * acomoda automáticamente las tarjetas según el espacio disponible.
+ *
+ * Las tarjetas usan .glass-card (definida en base.css).
+ * Aquí solo están los estilos internos de cada tarjeta de certificación.
+ */
+
+
+/* =================================================================
+   GRID DE CERTIFICACIONES
+   =================================================================
+   repeat(auto-fit, minmax(280px, 1fr)):
+     - auto-fit → crea tantas columnas como quepan
+     - minmax(280px, 1fr) → cada columna tiene mínimo 280px y máximo
+       todo el espacio disponible
+   Resultado: en pantalla grande se ven 2-3 columnas, en móvil 1 columna.
+   ================================================================= */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+
+/* =================================================================
+   CABECERA DE CADA CERTIFICACIÓN
+   ================================================================= */
+
+/* Distribuye ícono+nombre a la izquierda y fecha a la derecha */
+.cert-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Contenedor del ícono con fondo semitransparente */
+.cert-icon {
+    background: rgba(45, 212, 191, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fecha en formato pastilla pequeña */
+.cert-date {
+    font-family: 'JetBrains Mono';
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border: 1px solid var(--glass-border);
+    padding: 4px 8px;
+    border-radius: 20px;
+    white-space: nowrap; /* Evita que la fecha se corte en dos líneas */
+}
+
+
+/* =================================================================
+   CONTENIDO DE CADA CERTIFICACIÓN
+   ================================================================= */
+
+/* Contenedor flex que agrupa descripción, tags y link */
+.cert-content {
+    display: flex;
+    gap: 20px;
+    align-items: start;
+    margin-bottom: 25px;
+    flex-wrap: wrap; /* En móvil, los elementos se apilan */
+}
+
+/* Contenedor opcional para imagen de certificación */
+.cert-img-container {
+    flex: 0 0 120px; /* Ancho fijo de 120px en desktop */
+}
+
+/*
+ * Cuerpo de la tarjeta de certificación.
+ * flex: 1 → ocupa TODO el ancho disponible dentro de .cert-content.
+ * Necesario porque .cert-content es flex y puede tener otros hijos
+ * (como .cert-img-container) que compiten por el espacio.
+ */
+.cert-body {
+    flex: 1;
+}
+
+
+/* =================================================================
+   ELEMENTOS INTERNOS DE CADA TARJETA
+   ================================================================= */
+
+/*
+ * .cert-grid .skill-tag — Los tags de habilidades en certificaciones
+ * son más pequeños que los del hero para no saturar las tarjetas.
+ * El selector .cert-grid .skill-tag (descendant) restringe el estilo
+ * solo a los skill-tags dentro de la sección de certificaciones.
+ */
+.cert-grid .skill-tag {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+}
+
+/*
+ * Espacio debajo del bloque de tags antes del link al certificado.
+ * Este selector scoped evita afectar a otros .skills-container del sitio.
+ */
+.cert-content .skills-container {
+    margin-bottom: 15px;
+}
+
+/* Agrupa el ícono y el nombre de la institución en una fila */
+.cert-header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Nombre del curso o título del certificado */
+.cert-name {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+/*
+ * Nombre de la institución emisora.
+ * El color se aplica inline en el HTML porque varía por certificado:
+ * azul (accent-primary) para DUOC UC y Udemy JS,
+ * verde (accent-tertiary) para Udemy TS y Cisco.
+ */
+.cert-institution {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* Descripción del contenido aprendido en el certificado */
+.cert-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Código o ID de verificación del certificado */
+.cert-id {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 10px;
+}
+
+/*
+ * Link para ver o validar el certificado externo.
+ * El color se aplica inline porque varía según la institución.
+ * Hereda el color del elemento padre de ser necesario.
+ */
+.cert-link {
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+}

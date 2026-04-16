@@ -1,0 +1,141 @@
+<!--
+  experience.html — Componente: Trayectoria Profesional
+  =======================================================
+  Muestra la experiencia laboral en formato línea de tiempo (timeline).
+
+  La línea vertical y los puntos son puramente CSS:
+    · La línea = pseudo-elemento ::before en .timeline (ver timeline.css)
+    · Los puntos = .timeline-dot posicionados absolutamente
+
+  CÓMO AGREGAR un trabajo nuevo:
+    Copia el bloque <div class="timeline-item"> completo
+    y pégalo dentro de <div class="timeline">.
+
+    · Punto ACTIVO (trabajo actual):  <div class="timeline-dot">
+    · Punto INACTIVO (trabajo pasado): <div class="timeline-dot timeline-dot--inactive">
+
+  CAMPOS A EDITAR en cada entrada:
+    - .job-title   → cargo/puesto
+    - .job-company → nombre de la empresa
+    - .job-date    → rango de fechas
+    - <p>          → descripción general del rol
+    - <ul><li>     → logros y responsabilidades puntuales
+-->
+
+<section id="experience">
+    <div class="container">
+
+        <!--
+          <h2> — Título de segundo nivel (jerarquía: h1 > h2 > h3)
+          .section-title aplica font-size: 2.5rem y margin-bottom: 50px (base.css)
+        -->
+        <h2 class="section-title">
+            Trayectoria <span class="highlight">Profesional</span>
+        </h2>
+
+        <!-- Contenedor principal del timeline -->
+        <div class="timeline">
+
+            <!-- ============================================
+              ENTRADA 1: Trabajo actual
+              Punto azul brillante = posición activa
+              ============================================ -->
+            <div class="timeline-item">
+
+                <!-- .timeline-dot sin estilo inline = punto azul con glow (activo) -->
+                <div class="timeline-dot"></div>
+
+                <!-- .glass-card → tarjeta con efecto glassmorphism (base.css) -->
+                <div class="glass-card">
+
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Asistente de análisis</div>
+                            <div class="job-company">CURIFOR S.A.</div>
+                        </div>
+                        <div class="job-date">2025 - Actualidad</div>
+                    </div>
+
+                    <!--
+                      .job-desc → párrafo de descripción del rol (ver timeline.css).
+                      Aplica color muted y margen inferior estándar.
+                    -->
+                    <p class="job-desc">
+                        Implementación de soluciones tecnológicas en entorno ERP, combinando
+                        análisis de datos, automatización de procesos y desarrollo de
+                        aplicaciones internas.
+                    </p>
+
+                    <!--
+                      .job-list → lista de logros y responsabilidades (ver timeline.css).
+                      <li> → elemento de lista (list item).
+                      <strong> → texto en negrita para resaltar la categoría del logro.
+                    -->
+                    <ul class="job-list">
+                        <li><strong>SQL & ERP:</strong> Desarrollo y optimización de consultas SQL para extracción, validación y análisis de datos desde sistema Flexline ERP.</li>
+                        <li><strong>Automatización:</strong> Implementación de flujos con Power Automate y desarrollo de aplicaciones con Power Apps, reduciendo tareas manuales del área.</li>
+                        <li><strong>Calidad de datos:</strong> Validación de consistencia e integridad de información en el ERP, asegurando confiabilidad en la toma de decisiones.</li>
+                        <li><strong>Gestión documental:</strong> Estructuración y administración de información en SharePoint para facilitar el acceso y control de datos internos.</li>
+                        <li><strong>Proyectos tecnológicos:</strong> Participación en levantamiento de requerimientos y coordinación en implementación de soluciones internas.</li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+            <!-- ============================================
+              ENTRADA 2: Trabajo anterior
+              Punto gris = posición pasada / inactiva
+              ============================================ -->
+            <div class="timeline-item">
+
+                <!-- style inline: gris sin glow = trabajo pasado -->
+                <!-- .timeline-dot--inactive → gris sin glow, indica trabajo pasado (ver timeline.css) -->
+                <div class="timeline-dot timeline-dot--inactive"></div>
+
+                <div class="glass-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Administrativo de Logística</div>
+                            <div class="job-company">TECNO FAST</div>
+                        </div>
+                        <div class="job-date">May 2018 - Nov 2025</div>
+                    </div>
+
+                    <p class="job-desc">
+                        Gestión operativa y mejora continua de procesos administrativos
+                        a través de herramientas de análisis y automatización durante
+                        más de 7 años.
+                    </p>
+
+                    <ul class="job-list">
+                        <li><strong>ERP & Finanzas:</strong> Gestión y procesamiento de estados de pago en SAP HANA, manteniendo trazabilidad y control documental.</li>
+                        <li><strong>Automatización:</strong> Optimización de procesos administrativos implementando automatizaciones con Excel (VBA) y Power Automate.</li>
+                        <li><strong>Reportería:</strong> Desarrollo de dashboards en Power BI para monitoreo de indicadores del área.</li>
+                        <li><strong>Logística:</strong> Gestión integral de órdenes de compra, coordinación de servicios de transporte y mantención.</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+              ENTRADA 3: Formación académica
+              Sin lista de logros (solo encabezado)
+              ============================================ -->
+            <div class="timeline-item">
+                <!-- .timeline-dot--inactive → gris sin glow, indica trabajo pasado (ver timeline.css) -->
+                <div class="timeline-dot timeline-dot--inactive"></div>
+                <div class="glass-card">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Ingeniería en Informática</div>
+                            <div class="job-company">INSTITUTO PROFESIONAL DUOC UC</div>
+                        </div>
+                        <div class="job-date">2022 - 2025</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

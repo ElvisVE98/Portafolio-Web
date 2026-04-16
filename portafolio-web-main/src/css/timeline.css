@@ -1,0 +1,138 @@
+/*
+ * timeline.css — Línea de tiempo de experiencia laboral
+ * ======================================================
+ * La línea de tiempo se construye solo con CSS:
+ *   - La línea vertical = pseudo-elemento ::before en .timeline
+ *   - Los puntos       = .timeline-dot posicionados absolutamente
+ *   - Las tarjetas     = .glass-card (definida en base.css)
+ *
+ * No existe una etiqueta HTML "timeline" — es un patrón visual
+ * construido con <div> y posicionamiento CSS.
+ */
+
+
+/* =================================================================
+   CONTENEDOR DE LA LÍNEA DE TIEMPO
+   =================================================================
+   position: relative → necesario para que el ::before (línea
+   vertical) se posicione en relación al .timeline, no al viewport.
+   ================================================================= */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/*
+ * ::before → Pseudo-elemento que se inserta ANTES del contenido.
+ * Aquí crea la línea vertical izquierda.
+ * content: '' → obligatorio para que el pseudo-elemento se renderice.
+ */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =================================================================
+   ITEM INDIVIDUAL DE LA LÍNEA DE TIEMPO
+   ================================================================= */
+.timeline-item {
+    margin-left: 30px;   /* Espacio para el punto y la línea a la izquierda */
+    margin-bottom: 50px;
+    position: relative;  /* Para que .timeline-dot se posicione relativo a esto */
+}
+
+/*
+ * El punto circular en la línea de tiempo.
+ * position: absolute → Se posiciona fuera del flujo normal,
+ * pegado a la línea vertical (left negativo = va hacia la izquierda).
+ * El punto del trabajo actual tiene glow; los anteriores son grises.
+ */
+.timeline-dot {
+    position: absolute;
+    left: -36px;
+    top: 5px;
+    width: 14px;
+    height: 14px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent-primary); /* Efecto de brillo/glow */
+}
+
+
+/* =================================================================
+   CABECERA DE CADA TRABAJO
+   ================================================================= */
+
+/* Distribuye cargo/empresa a la izquierda y fecha a la derecha */
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* En móvil, la fecha cae debajo del cargo */
+    gap: 10px;
+}
+
+/* Cargo / puesto de trabajo */
+.job-title {
+    font-size: 1.3rem;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+/* Nombre de la empresa */
+.job-company {
+    color: var(--accent-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+/* Rango de fechas del trabajo */
+.job-date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+
+/*
+ * .timeline-dot--inactive — Variante del punto para trabajos pasados.
+ * Se combina con .timeline-dot:
+ *   <div class="timeline-dot timeline-dot--inactive">
+ *
+ * Sobreescribe el color azul brillante con gris muted, y elimina
+ * el glow para indicar visualmente que ese rol ya concluyó.
+ */
+.timeline-dot--inactive {
+    background: var(--text-muted);
+    box-shadow: none;
+}
+
+
+/* =================================================================
+   CONTENIDO DE CADA ENTRADA
+   ================================================================= */
+
+/* Párrafo de descripción general del rol */
+.job-desc {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+/*
+ * Lista de logros y responsabilidades puntales.
+ * list-style-position: inside → las viñetas quedan DENTRO del
+ * padding del elemento, alineadas con el texto (no sobresalen).
+ * Esto evita que las viñetas se corten en contenedores con overflow.
+ */
+.job-list {
+    list-style-position: inside;
+    color: var(--text-muted);
+    line-height: 1.8;
+}

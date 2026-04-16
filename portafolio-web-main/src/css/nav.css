@@ -1,0 +1,99 @@
+/*
+ * nav.css — Barra de navegación
+ * ==============================
+ * Estilos del <header> y <nav> que se mantiene fijo
+ * en la parte superior mientras el usuario hace scroll.
+ *
+ * Secciones:
+ *   1. Contenedor nav (posición fija, blur de fondo)
+ *   2. Layout interno (.nav-content, .logo, .nav-links)
+ *   3. Botón hamburguesa para móvil (.menu-toggle)
+ *      → El comportamiento del menú en móvil está en responsive.css
+ */
+
+
+/* =================================================================
+   1. NAV PRINCIPAL
+   =================================================================
+   position: fixed → Se queda pegado al tope aunque se haga scroll
+   z-index: 1000   → Se superpone por encima de todas las secciones
+   backdrop-filter → Desenfoca el contenido que hay detrás (mismo
+                     efecto glassmorphism que las tarjetas)
+   ================================================================= */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: var(--glass-border);
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+}
+
+
+/* =================================================================
+   2. LAYOUT INTERNO
+   ================================================================= */
+
+/* Distribuye logo y links en extremos opuestos */
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Logo / nombre del desarrollador */
+.logo {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--text-main);
+    z-index: 1002; /* Por encima del menú desplegable en móvil */
+}
+
+/*
+ * .logo-accent — El sufijo coloreado del logo (".desarrollador").
+ * Usa el azul principal para crear contraste con el nombre blanco.
+ * Ejemplo de uso: Elvis Velasquez<span class="logo-accent">.desarrollador</span>
+ */
+.logo-accent {
+    color: var(--accent-primary);
+}
+
+/* Contenedor de los links de navegación */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+/* Links individuales del menú */
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--accent-primary);
+}
+
+
+/* =================================================================
+   3. BOTÓN HAMBURGUESA (visible solo en móvil)
+   =================================================================
+   display: none → oculto en desktop
+   Se activa con display: block en el @media de responsive.css
+   ================================================================= */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1002;
+    color: var(--text-main);
+}

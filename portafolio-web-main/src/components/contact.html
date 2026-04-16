@@ -1,0 +1,88 @@
+<!--
+  contact.html — Componente: Sección de Contacto
+  =================================================
+  Sección centrada con CTA de email y links a redes sociales.
+
+  CÓMO EDITAR:
+    · Email: cambia href="mailto:tu@email.com" y el texto visible
+    · LinkedIn: actualiza el href del ícono linkedin
+    · GitHub: actualiza el href del ícono github
+
+  CÓMO AGREGAR una red social:
+    Copia un <a class="social-link"> y cambia data-feather por el nombre
+    del ícono correspondiente (twitter, instagram, youtube, etc.)
+    Ver todos los íconos disponibles en feathericons.com
+
+  NOTA SEMÁNTICA:
+    <address> es la etiqueta HTML semántica para datos de contacto.
+    Aquí usamos <section> porque incluye párrafos de texto y botones
+    que van más allá de solo listar información de contacto.
+
+  CLASES CSS (ver src/css/contact.css):
+    .contact-subtitle → subtítulo monoespacio ("¿Hablamos?")
+    .contact-title    → título principal grande
+    .contact-desc     → párrafo de disponibilidad
+    .btn-contact      → modificador del botón para hacerlo más grande
+    .social-links     → fila de íconos de redes sociales
+    .social-link      → ícono individual (con hover azul)
+-->
+
+<section id="contact">
+    <div class="container contact-box">
+
+        <!--
+          .contact-subtitle extiende .highlight con tipografía monoespacio.
+          Ver contact.css para los estilos de .contact-subtitle.
+        -->
+        <span class="highlight contact-subtitle">
+            ¿Hablamos?
+        </span>
+
+        <!-- Título principal de la sección de contacto -->
+        <h2 class="contact-title">
+            Vamos a crear algo increíble
+        </h2>
+
+        <p class="contact-desc">
+            Actualmente resido en <strong>Santiago, Chile</strong> y estoy disponible
+            para proyectos de Inteligencia de Negocios, Automatización y Análisis de
+            Datos (Modalidad Remota/Híbrida).
+        </p>
+
+        <!--
+          mailto: le dice al navegador que abra el cliente de correo del usuario.
+          .btn-contact → modificador CSS que agranda el botón estándar (.btn .btn-primary).
+          Reemplaza la dirección y el texto visible con tu email real.
+        -->
+        <a href="mailto:evelasquez_98@hotmail.com"
+           class="btn btn-primary btn-contact">
+            evelasquez_98@hotmail.com
+        </a>
+
+        <!-- Fila de íconos de redes sociales -->
+        <div class="social-links">
+
+            <!--
+              data-feather="linkedin" → feather.replace() lo convierte en SVG de LinkedIn.
+              target="_blank" → abre en pestaña nueva.
+              rel="noopener"  → seguridad: evita que la página destino acceda a window.opener.
+              .social-link    → aplica color gris con hover azul (ver contact.css).
+            -->
+            <a href="https://www.linkedin.com/in/elvis-velasquez-28b9a3251/"
+               target="_blank"
+               rel="noopener"
+               class="social-link">
+                <i data-feather="linkedin"></i>
+            </a>
+
+            <a href="https://github.com/ElvisVE98"
+               target="_blank"
+               rel="noopener"
+               class="social-link">
+                <i data-feather="github"></i>
+            </a>
+
+        </div>
+
+    </div>
+</section>

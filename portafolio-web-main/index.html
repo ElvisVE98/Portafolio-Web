@@ -1,502 +1,141 @@
 <!DOCTYPE html>
+<!--
+  index.html — Shell principal de la aplicación
+  ===============================================
+  Este archivo es el "esqueleto" de la página.
+  No contiene el HTML de las secciones directamente.
+  Cada sección vive en su propio archivo en src/components/
+  y se inyecta aquí en tiempo de ejecución por dist/main.js.
+
+  ESTRUCTURA DE ARCHIVOS:
+    index.html          ← Este archivo (punto de entrada)
+    src/
+      components/       ← HTML de cada sección
+        nav.html
+        hero.html
+        experience.html
+        certifications.html
+        projects.html
+        contact.html
+        footer.html
+      css/
+        main.css        ← Importa todos los módulos CSS
+        base.css, nav.css, hero.css, timeline.css ...
+      ts/
+        main.ts         ← TypeScript fuente (entry point)
+        loader.ts       ← Carga los componentes HTML
+        navigation.ts   ← Lógica del menú
+    dist/
+      main.js           ← JavaScript compilado (NO editar aquí)
+
+  IMPORTANTE: Este sitio necesita un servidor local para funcionar.
+  Usa la extensión "Live Server" de VS Code o ejecuta:
+    npx serve .
+  desde la terminal en esta carpeta.
+-->
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elvis Velasquez | Junior Software Developer</title>
 
+    <!-- SEO: información para motores de búsqueda -->
     <meta name="description" content="Portafolio de Elvis Velásquez, Ingeniero en Informática enfocado en desarrollo web, automatización, SQL y soluciones full stack.">
-    <meta name="keywords" content="Elvis Velásquez, Software Developer, Frontend, JavaScript, TypeScript, Django,Node.js, SQL, Chile">
+    <meta name="keywords" content="Elvis Velásquez, Software Developer, Frontend, JavaScript, TypeScript, Django, Node.js, SQL, Chile">
     <meta name="author" content="Elvis Velasquez">
 
+    <!--
+      Open Graph: apariencia al compartir en redes sociales.
+      IMPORTANTE: Actualiza og:url e og:image con tu dominio real
+      cuando despliegues el sitio (ej: Netlify, Vercel, GitHub Pages).
+    -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://noelsanabria.site/">
+    <meta property="og:url" content="https://tudominio.com/">
     <meta property="og:title" content="Elvis Velásquez | Junior Software Developer">
     <meta property="og:description" content="Desarrollo soluciones web, automatización y aplicaciones orientadas al negocio.">
-    <meta property="og:image" content="https://noelsanabria.site/img/NoelSanabria.png">
+    <meta property="og:image" content="https://tudominio.com/img/FOTO_RETRATO.jpeg">
 
-    <link rel="canonical" href="https://noelsanabria.site/">
+    <!--
+      URL canónica: la URL "oficial" de este sitio para Google.
+      IMPORTANTE: Actualiza con tu dominio real al desplegar.
+    -->
+    <link rel="canonical" href="https://tudominio.com/">
 
+    <!--
+      Feather Icons se carga ANTES que el script principal.
+      dist/main.js llama a feather.replace() después de inyectar
+      los componentes, por eso feather debe estar disponible ya.
+    -->
     <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Tipografías de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <!--
+      CSS principal: importa todos los módulos CSS desde src/css/
+      Ver src/css/main.css para el orden de @import.
+    -->
+    <link rel="stylesheet" href="src/css/main.css">
 </head>
+
 <body>
 
-    <nav>
-        <div class="container nav-content">
-            <div class="logo">Elvis Velasquez<span style="color:var(--accent-primary)">.desarrollador</span></div>
-            
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <i data-feather="menu" style="width: 28px; height: 28px;"></i>
-            </div>
+    <!--
+      CONTENEDORES DE COMPONENTES
+      ============================
+      Cada <div id="...-container"> es un "slot" vacío.
+      dist/main.js llama a loadAllComponents() que carga
+      el HTML de src/components/*.html y lo inyecta aquí.
 
-            <div class="nav-links" id="navLinks">
-                <a href="#hero" onclick="toggleMenu()">Sobre mí</a>
-                <a href="#experience" onclick="toggleMenu()">Experiencia</a>
-                <a href="#certifications" onclick="toggleMenu()">Certificaciones</a>
-                <a href="#projects" onclick="toggleMenu()">Proyectos</a>
-                <a href="#contact" onclick="toggleMenu()">Contacto</a>
-            </div>
+      Después de que main.js ejecuta, el DOM se verá así:
+        <div id="nav-container">
+          <header><nav>...</nav></header>
         </div>
-    </nav>
+        etc.
+    -->
 
-    <section id="hero">
-        <div class="container hero-grid">
-            
-            <div class="hero-content">
-                <span class="badge">Disponible para nuevos retos (Remoto/Híbrido)</span>
-                <h1>
-                    Desarrollo Web <br>
-                    <span class="highlight">Código que resuelve.</span>
-                </h1>
-                <p class="hero-desc">
-                    Hola, soy <strong>Elvis Velasquez</strong>. Ingeniero en Informática egresado de <strong>Duoc UC</strong>, con experiencia en desarrollo de aplicaciones internas <strong>web</strong>, automatización de procesos y análisis de datos con SQL. Me enfoco en construir soluciones prácticas para mejorar procesos y aportar valor al negocio. Actualmente sigo fortaleciendo mi camino como <strong>Software Developer Full Stack</strong>, aprendiendo de forma constante nuevas tecnologías y trabajando con JavaScript, TypeScript, <strong>Node.js</strong>, Python (Django) y PostgreSQL.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        Ver Proyectos <i data-feather="arrow-right"></i>
-                    </a>
-                    <a href="#contact" class="btn btn-outline">
-                        Contáctame
-                    </a>
-                </div>
+    <!-- Slot: Barra de navegación (src/components/nav.html) -->
+    <div id="nav-container"></div>
 
-                <div style="margin-top: 50px;">
-                    
-                    <div class="skills-group">
-                        <span class="skills-label">Desarrollo Web & Backend</span>
-                        <div class="skills-container">
-                            <div class="skill-tag tech"><i data-feather="code"></i>HTML/CSS</div>
-                            <div class="skill-tag tech"><i data-feather="code"></i>JavaScript/TypeScript</div>
-                            <div class="skill-tag tech"><i data-feather="database"></i>SQL Server / PostgreSQL</div>
-                            <div class="skill-tag tech"><i data-feather="terminal"></i>Node.js/Python (Django) </div>
-                            <div class="skill-tag tech"><i data-feather="cpu"></i> Git/GitHub</div>
-                        </div>
-                    </div>
+    <!--
+      <main> envuelve el contenido principal de la página.
+      Solo debe haber un <main> por documento (semántica HTML5).
+      Los motores de búsqueda le dan mayor relevancia a este contenido.
+    -->
+    <main>
+        <!-- Slot: Sección hero / presentación (src/components/hero.html) -->
+        <div id="hero-container"></div>
 
-                    <div class="skills-group">
-                        <span class="skills-label" style="color: var(--accent-tertiary);">Automatización & Datos</span>
-                        <div class="skills-container">
-                            <div class="skill-tag data"><i data-feather="bar-chart-2"></i>Power Automate</div>
-                            <div class="skill-tag data"><i data-feather="grid"></i> Power Apps</div>
-                            <div class="skill-tag data"><i data-feather="grid"></i> Power BI</div>
-                            <div class="skill-tag data"><i data-feather="file-text"></i> Excel Avanzado (Macros) / SQL server</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <!-- Slot: Experiencia laboral (src/components/experience.html) -->
+        <div id="experience-container"></div>
 
-            <div class="profile-column">
-                <div class="profile-container">
-                    <div class="profile-blob"></div>
-                    <img src="img/FOTO_RETRATO.jpeg" alt="Foto de elvis velasquez" class="profile-img">
-                </div>
-            </div>
+        <!-- Slot: Certificaciones (src/components/certifications.html) -->
+        <div id="certifications-container"></div>
 
-        </div>
-    </section>
+        <!-- Slot: Proyectos (src/components/projects.html) -->
+        <div id="projects-container"></div>
 
-    <section id="experience">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 50px;">Trayectoria <span class="highlight">Profesional</span></h2>
+        <!-- Slot: Contacto (src/components/contact.html) -->
+        <div id="contact-container"></div>
+    </main>
 
-            <div class="timeline">
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="glass-card">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Asistente de análisis</div>
-                                <div class="job-company">CURIFOR S.A.</div>
-                            </div>
-                            <div class="job-date">2025 - Actualidad</div>
-                        </div>
-                        <p style="color: var(--text-muted); margin-bottom: 15px;">
-                            Implementación de soluciones tecnológicas en entorno ERP, combinando análisis de datos, automatización de procesos y desarrollo de aplicaciones internas.
-                        </p>
-                        <ul style="list-style-position: inside; color: var(--text-muted); line-height: 1.8;">
-                            <li><strong>SQL & ERP:</strong> Desarrollo y optimización de consultas SQL para extracción, validación y análisis de datos desde sistema Flexline ERP.</li>
-                            <li><strong>Automatización:</strong> Implementación de flujos con Power Automate y desarrollo de aplicaciones con Power Apps, reduciendo tareas manuales del área.</li>
-                            <li><strong>Calidad de datos:</strong> Validación de consistencia e integridad de información en el ERP, asegurando confiabilidad en la toma de decisiones.</li>
-                            <li><strong>Gestión documental:</strong> Estructuración y administración de información en SharePoint para facilitar el acceso y control de datos internos.</li>
-                            <li><strong>Proyectos tecnológicos:</strong> Participación en levantamiento de requerimientos y coordinación en implementación de soluciones internas.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot" style="background: var(--text-muted); box-shadow: none;"></div>
-                    <div class="glass-card">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Administrativo de Logística</div>
-                                <div class="job-company">TECNO FAST</div>
-                            </div>
-                            <div class="job-date">May 2018 - Nov 2025</div>
-                        </div>
-                        <p style="color: var(--text-muted);">
-                            Gestión operativa y mejora continua de procesos administrativos a través de herramientas de análisis y automatización durante más de 7 años.
-                        </p>
-                        <ul style="list-style-position: inside; color: var(--text-muted); line-height: 1.8;">
-                            <li><strong>ERP & Finanzas:</strong> Gestión y procesamiento de estados de pago en SAP HANA, manteniendo trazabilidad y control documental.</li>
-                            <li><strong>Automatización:</strong> Optimización de procesos administrativos implementando automatizaciones con Excel (VBA) y Power Automate.</li>
-                            <li><strong>Reportería:</strong> Desarrollo de dashboards en Power BI para monitoreo de indicadores del área.</li>
-                            <li><strong>Logística:</strong> Gestión integral de órdenes de compra, coordinación de servicios de transporte y mantención.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot" style="background: var(--text-muted); box-shadow: none;"></div>
-                    <div class="glass-card">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Ingeniería en Informática</div>
-                                <div class="job-company">INSTITUTO PROFESIONAL DUOC UC</div>
-                            </div>
-                            <div class="job-date">2022 - 2025</div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-   <section id="certifications">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 50px;">Credenciales & <span class="highlight">Cursos</span></h2>
- 
-            <div class="cert-grid">
- 
-                <div class="glass-card">
-                    <div class="cert-header">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <div class="cert-icon">
-                                <i data-feather="award" style="color: var(--accent-primary); width: 24px; height: 24px;"></i>
-                            </div>
-                            <div>
-                                <h3 style="font-size: 1.2rem; margin: 0;">Ingeniero en Informática</h3>
-                                <p style="color: var(--accent-primary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin: 0;">DUOC UC</p>
-                            </div>
-                        </div>
-                        <span class="cert-date">Feb. 2026</span>
-                    </div>
-                    <div class="cert-content">
-                        <div style="flex: 1;">
-                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5;">
-                                Título profesional de Ingeniería en Informática, con formación en desarrollo de software, bases de datos, redes y gestión de proyectos tecnológicos.
-                            </p>
-                            <div class="skills-container" style="margin-bottom: 15px;">
-                                <div class="skill-tag tech" style="font-size: 0.75rem; padding: 6px 10px;">Desarrollo de Software</div>
-                                <div class="skill-tag tech" style="font-size: 0.75rem; padding: 6px 10px;">Programación</div>
-                                <div class="skill-tag tech" style="font-size: 0.75rem; padding: 6px 10px;">Bases de Datos</div>
-                            </div>
-                            <p style="color: var(--text-muted); font-size: 0.8rem; font-family: 'JetBrains Mono';">ID: 2481476133</p>
-                            <a href="docs/5c6a45c9-bb80-4469-a494-eb095eac455c.pdf" target="_blank" style="color: var(--accent-primary); text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
-                            Ver Certificado <i data-feather="file-text" style="width: 14px; height: 14px;"></i>
-                            </a>
+    <!-- Slot: Pie de página (src/components/footer.html) -->
+    <div id="footer-container"></div>
 
 
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="glass-card">
-                    <div class="cert-header">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <div class="cert-icon">
-                                <i data-feather="terminal" style="color: var(--accent-tertiary); width: 24px; height: 24px;"></i>
-                            </div>
-                            <div>
-                                <h3 style="font-size: 1.2rem; margin: 0;">TypeScript: Tu completa guía y manual de mano</h3>
-                                <p style="color: var(--accent-tertiary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin: 0;">UDEMY</p>
-                            </div>
-                        </div>
-                        <span class="cert-date">Mar. 2026</span>
-                    </div>
-                    <div class="cert-content">
-                        <div style="flex: 1;">
-                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5;">
-                                Tipado estático, interfaces, generics y mejores prácticas para construir aplicaciones escalables y seguras con TypeScript.
-                            </p>
-                            <div class="skills-container" style="margin-bottom: 15px;">
-                                <div class="skill-tag data" style="font-size: 0.75rem; padding: 6px 10px;">TypeScript</div>
-                                <div class="skill-tag data" style="font-size: 0.75rem; padding: 6px 10px;">Frontend</div>
-                                <div class="skill-tag data" style="font-size: 0.75rem; padding: 6px 10px;">Tipado Estático</div>
-                            </div>
-                            <div style="margin-top: 10px;">
-                                <a href="https://www.udemy.com/certificate/UC-0c19b4d6-a470-45fc-ba1e-93c098a11a20/" target="_blank" style="color: var(--accent-tertiary); text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
-                                    Validar Credencial <i data-feather="external-link" style="width: 14px; height: 14px;"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="glass-card">
-                    <div class="cert-header">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <div class="cert-icon">
-                                <i data-feather="zap" style="color: var(--accent-primary); width: 24px; height: 24px;"></i>
-                            </div>
-                            <div>
-                                <h3 style="font-size: 1.2rem; margin: 0;">JavaScript Moderno: Guía para dominar el lenguaje</h3>
-                                <p style="color: var(--accent-primary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin: 0;">UDEMY</p>
-                            </div>
-                        </div>
-                        <span class="cert-date">Feb. 2026</span>
-                    </div>
-                    <div class="cert-content">
-                        <div style="flex: 1;">
-                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5;">
-                                JavaScript moderno completo: ES6+, async/await, Fetch API, manipulación del DOM, módulos y patrones de desarrollo actuales.
-                            </p>
-                            <div class="skills-container" style="margin-bottom: 15px;">
-                                <div class="skill-tag tech" style="font-size: 0.75rem; padding: 6px 10px;">JavaScript</div>
-                                <div class="skill-tag tech" style="font-size: 0.75rem; padding: 6px 10px;">Fetch API</div>
-                                <div class="skill-tag tech" style="font-size: 0.75rem; padding: 6px 10px;">ES6+</div>
-                            </div>
-                            <div style="margin-top: 10px;">
-                                <a href="https://www.udemy.com/certificate/UC-cbc23a2f-34b7-421f-a0a2-728c6aa39ca1/" target="_blank" style="color: var(--accent-primary); text-decoration: none; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
-                                    Validar Credencial <i data-feather="external-link" style="width: 14px; height: 14px;"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="glass-card">
-                    <div class="cert-header">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <div class="cert-icon">
-                                <i data-feather="code" style="color: var(--accent-tertiary); width: 24px; height: 24px;"></i>
-                            </div>
-                            <div>
-                                <h3 style="font-size: 1.2rem; margin: 0;">PCAP: Programming Essentials in Python</h3>
-                                <p style="color: var(--accent-tertiary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin: 0;">CISCO NETWORKING ACADEMY</p>
-                            </div>
-                        </div>
-                        <span class="cert-date">May. 2022</span>
-                    </div>
-                    <div class="cert-content">
-                        <div style="flex: 1;">
-                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.5;">
-                                Certificación oficial en fundamentos y programación esencial con Python, estructuras de datos y programación orientada a objetos.
-                            </p>
-                            <div class="skills-container">
-                                <div class="skill-tag data" style="font-size: 0.75rem; padding: 6px 10px;">Python Core</div>
-                                <div class="skill-tag data" style="font-size: 0.75rem; padding: 6px 10px;">OOP</div>
-                                <div class="skill-tag data" style="font-size: 0.75rem; padding: 6px 10px;">Data Structures</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="glass-card">
-                    <div class="cert-header">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <div class="cert-icon">
-                                <i data-feather="globe" style="color: var(--accent-primary); width: 24px; height: 24px;"></i>
-                            </div>
-                            <div>
-                                <h3 style="font-size: 1.2rem; margin: 0;">TOEIC — Inglés Profesional</h3>
-                                <p style="color: var(--accent-primary); font-family: 'JetBrains Mono'; font-size: 0.85rem; margin: 0;">ETS</p>
-                            </div>
-                        </div>
-                        <span class="cert-date">Dic. 2024</span>
-                    </div>
-                    <div class="cert-content">
-                        <div style="flex: 1;">
-                            <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5;">
-                                Certificación internacional de inglés orientada al entorno profesional, habilitando la lectura de documentación técnica y comunicación en equipos de trabajo.
-                            </p>
-                            <p style="color: var(--text-muted); font-size: 0.8rem; font-family: 'JetBrains Mono'; margin-top: 10px;">ID: 26731371</p>
-                        </div>
-                    </div>
-                </div>
- 
-            </div>
-        </div>
-    </section>
+    <!--
+      SCRIPT PRINCIPAL
+      =================
+      type="module" activa dos comportamientos importantes:
+        1. Permite usar import/export (ES Modules)
+        2. El script se ejecuta en modo "deferred" automáticamente
+           (espera a que el DOM esté listo antes de ejecutar)
 
-
-
-
-
-
-
-
-
- <section id="projects">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 50px;">Proyectos <span class="highlight">Destacados</span></h2>
- 
-            <div class="projects-grid">
- 
-                <div class="glass-card featured-card">
-                    <div class="featured-content">
-                        <div class="badge" style="border-color: var(--accent-primary); color: white;">PROYECTO ESTRELLA</div>
-                        <h3 style="font-size: 2rem; margin: 15px 0;">Clickbot Platform</h3>
- 
-                        <p style="max-width: 800px; color: var(--text-muted); margin-bottom: 25px;">
-                            Plataforma SaaS desarrollada en equipo bajo metodología Scrum para la digitalización del comercio minorista. Centraliza ventas e inventario con un módulo de Business Intelligence y un Asistente Virtual con IA. Mi rol: diseño de la arquitectura de base de datos relacional y desarrollo del backend en Django, incluyendo la integración de las APIs de Inteligencia Artificial.
-                        </p>
- 
-                        <div class="project-details-grid">
-                            <div>
-                                <h4 style="color: var(--accent-secondary); font-size: 1rem; margin-bottom: 8px;">Backend & BD</h4>
-                                <ul style="list-style: none; color: var(--text-muted); font-size: 0.9rem;">
-                                    <li>• Python 3.10+ (Django)</li>
-                                    <li>• PostgreSQL (Supabase)</li>
-                                    <li>• VPS Linux (Nginx/Gunicorn)</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--accent-tertiary); font-size: 1rem; margin-bottom: 8px;">IA & Data</h4>
-                                <ul style="list-style: none; color: var(--text-muted); font-size: 0.9rem;">
-                                    <li>• Google Gemini API (NLP)</li>
-                                    <li>• Prophet (Predicciones)</li>
-                                    <li>• Metabase (BI)</li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 style="color: var(--accent-primary); font-size: 1rem; margin-bottom: 8px;">Frontend</h4>
-                                <ul style="list-style: none; color: var(--text-muted); font-size: 0.9rem;">
-                                    <li>• HTML5 / CSS3 / JS</li>
-                                    <li>• Bootstrap 5</li>
-                                </ul>
-                            </div>
-                        </div>
- 
-                        <div class="project-tags">
-                            <span>#Python</span>
-                            <span>#Django</span>
-                            <span>#PostgreSQL</span>
-                            <span>#BusinessIntelligence</span>
-                            <span>#Scrum</span>
-                        </div>
- 
-                        <div style="margin-top: 30px;">
-                            <a href="https://clickbot.store/" target="_blank" class="btn btn-primary">Ver Proyecto <i data-feather="external-link"></i></a>
-                        </div>
-                    </div>
-                </div>
- 
-                <div class="glass-card">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                        <i data-feather="trending-up" style="color: var(--accent-primary); width: 40px; height: 40px;"></i>
-                    </div>
-                    <h3>FinChile — Dashboard Financiero</h3>
-                    <p style="color: var(--text-muted); margin: 15px 0;">
-                        Aplicación web interactiva que consume la API de Mindicador.cl en tiempo real. Conversor de divisas multidireccional con TypeScript, gráficos históricos de los últimos 30 días con Chart.js y diseño responsive en CSS puro. Desplegada en Netlify con CI/CD.
-                    </p>
-                    <div class="project-tags">
-                        <span>TypeScript</span>
-                        <span>Vite</span>
-                        <span>Chart.js</span>
-                        <span>REST API</span>
-                        <span>Netlify</span>
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <a href="https://conversor-cl.netlify.app/" target="_blank" style="color: var(--accent-primary); text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
-                            Ver Proyecto <i data-feather="external-link" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-                </div>
- 
-                <div class="glass-card">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                        <i data-feather="layers" style="color: var(--accent-primary); width: 40px; height: 40px;"></i>
-                    </div>
-                    <h3>EvenProd — Landing Page de Eventos</h3>
-                    <p style="color: var(--text-muted); margin: 15px 0;">
-                        Landing page para agencia de eventos con CSS Grid, diseño responsive y menú hamburguesa funcional. Formulario de contacto integrado con Formspree para envío real de correos. HTML, CSS y JavaScript vanilla.
-                    </p>
-                    <div class="project-tags">
-                        <span>HTML5</span>
-                        <span>CSS Grid</span>
-                        <span>JavaScript</span>
-                        <span>Responsive</span>
-                        <span>Formspree</span>
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <a href="https://eventprod.netlify.app" target="_blank" style="color: var(--accent-primary); text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
-                            Ver Proyecto <i data-feather="external-link" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-                </div>
- 
-                <div class="glass-card">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                        <i data-feather="cpu" style="color: var(--accent-primary); width: 40px; height: 40px;"></i>
-                    </div>
-                    <h3>BlackJack — Juego de Cartas</h3>
-                    <p style="color: var(--text-muted); margin: 15px 0;">
-                        Juego de BlackJack interactivo construido con JavaScript puro aplicando el patrón módulo (IIFE) para encapsulación del estado. Lógica completa de turnos, cálculo de puntos y condiciones de victoria. Sin frameworks.
-                    </p>
-                    <div class="project-tags">
-                        <span>JavaScript</span>
-                        <span>Patrón Módulo</span>
-                        <span>IIFE</span>
-                        <span>Bootstrap 4</span>
-                    </div>
-                    <div style="margin-top: 20px;">
-                        <a href="https://blackjack-gamecard.netlify.app" target="_blank" style="color: var(--accent-primary); text-decoration: none; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; font-weight: 600;">
-                            Ver Proyecto <i data-feather="external-link" style="width: 14px; height: 14px;"></i>
-                        </a>
-                    </div>
-                </div>
- 
-            </div>
-        </div>
-    </section>
- 
-    <section id="contact">
-        <div class="container contact-box">
-            <span class="highlight" style="font-size: 1.2rem; font-family: 'JetBrains Mono';">¿Hablamos?</span>
-            <h2 style="font-size: 3rem; margin: 20px 0;">Vamos a crear algo increíble</h2>
-            <p style="color: var(--text-muted); margin-bottom: 40px;">
-                Actualmente resido en <strong>Santiago, Chile</strong> y estoy disponible para proyectos de Inteligencia de Negocios, Automatización y Análisis de Datos (Modalidad Remota/Híbrida).
-            </p>
-            <a href="mailto:evelasquez_98@hotmail.com" class="btn btn-primary"
-                style="font-size: 1.2rem; padding: 18px 40px;">
-                evelasquez_98@hotmail.com
-            </a>
- 
-            <div style="margin-top: 50px; display: flex; justify-content: center; gap: 30px;">
-                <a href="https://www.linkedin.com/in/elvis-velasquez-28b9a3251/" target="_blank" style="color: var(--text-muted);"><i data-feather="linkedin"></i></a>
-                <a href="https://github.com/ElvisVE98" target="_blank" style="color: var(--text-muted);"><i data-feather="github"></i></a>
-            </div>
-        </div>
-    </section>
-
-
- 
-
-
-
-
-    <footer>
-        <div class="container">
-            <p>Diseñado y Desarrollado por <strong>Elvis Velasquez</strong> © 2026</p>
-            <p style="font-size: 0.8rem; margin-top: 10px; color: var(--text-muted);">Junior Software Developer | Ingeniero en Informática</p>
-        </div>
-    </footer>
-
-    <script>
-        // Inicializar Iconos
-        feather.replace();
-
-        // Lógica del Menú Móvil
-        function toggleMenu() {
-            const nav = document.getElementById('navLinks');
-            nav.classList.toggle('active');
-        }
-    </script>
+      Va al final del body para que feather-icons (cargado arriba)
+      ya esté disponible como variable global cuando main.js corra.
+    -->
+    <script type="module" src="dist/main.js"></script>
 
 </body>
 </html>

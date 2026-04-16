@@ -1,0 +1,60 @@
+{
+    "compilerOptions": {
+
+        /* -------------------------------------------------------
+           TARGET: Versión de JavaScript que produce el compilador.
+           ES2017 soporta async/await de forma nativa (sin polyfills).
+           Compatible con todos los navegadores modernos.
+        ------------------------------------------------------- */
+        "target": "ES2017",
+
+        /* -------------------------------------------------------
+           MODULE: Sistema de módulos del código compilado.
+           ES2015 (= ES6) produce import/export nativos del navegador.
+           Requiere type="module" en el <script> de index.html.
+        ------------------------------------------------------- */
+        "module": "ES2015",
+
+        /* -------------------------------------------------------
+           MODULE RESOLUTION: Cómo TypeScript resuelve los imports.
+           "bundler" permite escribir imports con extensión .js
+           apuntando a archivos .ts (necesario para ES modules en browser).
+        ------------------------------------------------------- */
+        "moduleResolution": "bundler",
+
+        /* -------------------------------------------------------
+           ROOTDIR: Carpeta raíz de los archivos TypeScript fuente.
+           Le dice al compilador dónde están los .ts originales.
+           Sin este campo, TypeScript lo infiere pero en la v6.0
+           lo exige explícito cuando outDir está definido.
+        ------------------------------------------------------- */
+        "rootDir": "src/ts",
+
+        /* -------------------------------------------------------
+           OUTDIR: Carpeta donde se depositan los .js compilados.
+           src/ts/main.ts       → dist/main.js
+           src/ts/loader.ts     → dist/loader.js
+           src/ts/navigation.ts → dist/navigation.js
+        ------------------------------------------------------- */
+        "outDir": "dist",
+
+        /* -------------------------------------------------------
+           STRICT: Activa todas las verificaciones estrictas de tipo.
+           Recomendado siempre. Detecta más errores antes de ejecutar.
+        ------------------------------------------------------- */
+        "strict": true,
+
+        /* -------------------------------------------------------
+           LIB: APIs disponibles para TypeScript.
+           ES2017 → Promise, async/await, Object.entries, etc.
+           DOM    → document, window, HTMLElement, fetch, etc.
+        ------------------------------------------------------- */
+        "lib": ["ES2017", "DOM"],
+
+        /* Genera sourcemaps para debuggear TypeScript en el navegador */
+        "sourceMap": true
+    },
+
+    /* Archivos TypeScript a compilar (src/ts/ y sus subcarpetas) */
+    "include": ["src/ts/**/*.ts"]
+}

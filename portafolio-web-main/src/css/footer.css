@@ -1,0 +1,32 @@
+/*
+ * footer.css — Pie de página
+ * ============================
+ * El <footer> es simple: texto centrado con borde superior
+ * que separa visualmente el final del contenido.
+ */
+
+
+/* =================================================================
+   FOOTER
+   =================================================================
+   border-top → línea divisoria sutil entre el contenido y el footer.
+   margin-top → espacio generoso antes del footer.
+   ================================================================= */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-muted);
+    border-top: var(--glass-border);
+    margin-top: 80px;
+}
+
+/*
+ * Subtítulo secundario del footer (cargo del desarrollador).
+ * El color var(--text-muted) ya está heredado del <footer>,
+ * pero se declara explícitamente para que sea auto-documentado.
+ */
+.footer-subtitle {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: var(--text-muted);
+}

@@ -1,0 +1,173 @@
+/*
+ * projects.css — Sección de proyectos destacados
+ * ================================================
+ * Contiene los estilos del grid de proyectos y sus tarjetas.
+ *
+ * Tipos de tarjeta:
+ *   .glass-card (base) → tarjeta normal del grid
+ *   .glass-card.featured-card → tarjeta destacada (ocupa todo el ancho)
+ */
+
+
+/* =================================================================
+   GRID DE PROYECTOS
+   =================================================================
+   Igual que .cert-grid pero comparte la misma regla CSS.
+   Las tarjetas normales ocupan 1 columna.
+   La .featured-card ocupa TODAS las columnas (grid-column: 1 / -1).
+   ================================================================= */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+
+/* =================================================================
+   TARJETA DESTACADA (proyecto principal)
+   =================================================================
+   grid-column: 1 / -1 → ocupa desde la columna 1 hasta la última.
+   El -1 significa "la última línea del grid", sin importar cuántas
+   columnas haya. Esto hace que el proyecto estrella siempre ocupe
+   todo el ancho disponible.
+   ================================================================= */
+.featured-card {
+    border-color: var(--accent-primary);
+    background: linear-gradient(160deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.95));
+    grid-column: 1 / -1;
+}
+
+/*
+ * Contenido interno del proyecto destacado.
+ * flex: 1 hace que ocupe todo el espacio vertical disponible
+ * dentro de .glass-card (que es display:flex + flex-direction:column).
+ */
+.featured-content {
+    flex: 1;
+}
+
+/* Título del proyecto estrella (mayor que los títulos normales) */
+.featured-title {
+    font-size: 2rem;
+    margin: 15px 0;
+}
+
+/*
+ * Descripción del proyecto destacado.
+ * max-width: 800px limita las líneas de texto para mejor legibilidad
+ * (aproximadamente 80 caracteres por línea en pantallas grandes).
+ */
+.featured-desc {
+    max-width: 800px;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+/* Fila que contiene el botón principal del proyecto destacado */
+.featured-link-row {
+    margin-top: 30px;
+}
+
+/*
+ * Grid interno del proyecto destacado.
+ * Organiza las tres columnas de tecnologías (Backend, IA, Frontend).
+ */
+.project-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+/*
+ * Título de cada columna de tecnologías (Backend, IA, Frontend).
+ * El color se aplica inline porque cada columna usa un acento distinto:
+ * violeta (accent-secondary) = Backend & BD
+ * verde  (accent-tertiary)   = IA & Data
+ * azul   (accent-primary)    = Frontend
+ */
+.tech-col-title {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+/* Lista de tecnologías dentro de cada columna del proyecto destacado */
+.tech-col-list {
+    list-style: none; /* Las viñetas "•" van escritas directamente en el HTML */
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+
+/* =================================================================
+   TARJETAS DE PROYECTOS NORMALES
+   ================================================================= */
+
+/* Fila superior de la tarjeta: ícono del proyecto */
+.project-icon-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Párrafo de descripción del proyecto */
+.project-desc {
+    color: var(--text-muted);
+    margin: 15px 0;
+}
+
+/* Contenedor del link al proyecto desplegado */
+.project-link-row {
+    margin-top: 20px;
+}
+
+/* Link al proyecto desplegado (siempre en color azul) */
+.project-link {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    transition: opacity 0.3s;
+}
+
+.project-link:hover {
+    opacity: 0.8;
+}
+
+
+/* =================================================================
+   TAGS DE TECNOLOGÍAS
+   =================================================================
+   margin-top: auto → el truco del flexbox: como .glass-card tiene
+   display:flex + flex-direction:column, margin-top:auto en el último
+   elemento lo empuja hacia el fondo de la tarjeta. Así todas las
+   tarjetas tienen los tags alineados en la misma altura vertical.
+   ================================================================= */
+.project-tags {
+    margin-top: auto;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent-primary);
+}
+
+
+/* =================================================================
+   BADGE VARIANTE — Proyecto Estrella
+   =================================================================
+   Se combina con .badge (definida en base.css):
+     <div class="badge badge--featured">PROYECTO ESTRELLA</div>
+   Sobreescribe el borde y color del .badge estándar para hacerlo
+   más llamativo en el contexto del proyecto destacado.
+   ================================================================= */
+.badge--featured {
+    border-color: var(--accent-primary);
+    color: white;
+}

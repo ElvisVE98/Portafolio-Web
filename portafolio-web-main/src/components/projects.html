@@ -1,0 +1,266 @@
+<!--
+  projects.html — Componente: Proyectos Destacados
+  ==================================================
+  Grid de proyectos con dos tipos de tarjeta:
+    · .glass-card.featured-card → ocupa todo el ancho (proyecto estrella)
+    · .glass-card               → tarjeta normal (resto de proyectos)
+
+  CÓMO AGREGAR un proyecto nuevo:
+    Copia el bloque <div class="glass-card"> de cualquier proyecto
+    normal y pégalo dentro de <div class="projects-grid">. Edita:
+      · data-feather="nombre"  → ícono del proyecto (feathericons.com)
+      · <h3>                   → nombre del proyecto
+      · <p class="project-desc"> → descripción del proyecto
+      · <div class="project-tags"><span> → tecnologías usadas
+      · <a class="project-link"> → link al proyecto desplegado
+
+  CÓMO AGREGAR UN PROYECTO ESTRELLA:
+    Agrega la clase "featured-card" a una .glass-card y mueve el
+    contenido dentro de un <div class="featured-content">.
+    Solo debería haber uno (ocupa todo el ancho del grid).
+
+  CLASES CSS (ver src/css/projects.css):
+    .projects-grid     → grid responsivo de tarjetas
+    .featured-card     → ocupar todo el ancho (grid-column: 1 / -1)
+    .featured-content  → flex:1 para llenar el espacio de la card
+    .featured-title    → título grande del proyecto estrella
+    .featured-desc     → descripción del proyecto estrella
+    .featured-link-row → contenedor del botón del proyecto estrella
+    .tech-col-title    → título de columna de tecnología (color inline)
+    .tech-col-list     → lista de tecnologías sin viñetas
+    .project-icon-row  → fila del ícono en tarjetas normales
+    .project-desc      → descripción de tarjeta normal
+    .project-link-row  → contenedor del link en tarjetas normales
+    .project-link      → link al proyecto (hover con opacidad)
+    .project-tags      → fila de tags de tecnología (margin-top: auto)
+    .badge--featured   → variante del badge para proyecto estrella
+-->
+
+<section id="projects">
+    <div class="container">
+
+        <h2 class="section-title">
+            Proyectos <span class="highlight">Destacados</span>
+        </h2>
+
+        <!--
+          .projects-grid → grid CSS (ver projects.css).
+          La .featured-card dentro usa grid-column: 1 / -1
+          para ocupar todo el ancho.
+        -->
+        <div class="projects-grid">
+
+            <!-- ============================================
+              PROYECTO ESTRELLA: Clickbot Platform
+              .featured-card → ocupa todo el ancho del grid
+              ============================================ -->
+            <div class="glass-card featured-card">
+                <!--
+                  .featured-content → flex:1, ocupa todo el espacio
+                  vertical dentro de la .glass-card.
+                -->
+                <div class="featured-content">
+
+                    <!--
+                      .badge--featured → variante del badge estándar con
+                      borde azul y texto blanco (ver projects.css).
+                    -->
+                    <div class="badge badge--featured">
+                        PROYECTO ESTRELLA
+                    </div>
+
+                    <!-- Título grande del proyecto estrella -->
+                    <h3 class="featured-title">Clickbot Platform</h3>
+
+                    <!-- Descripción del proyecto con ancho máximo para legibilidad -->
+                    <p class="featured-desc">
+                        Plataforma SaaS desarrollada en equipo bajo metodología Scrum para la
+                        digitalización del comercio minorista. Centraliza ventas e inventario con
+                        un módulo de Business Intelligence y un Asistente Virtual con IA.
+                        Mi rol: diseño de la arquitectura de base de datos relacional y desarrollo
+                        del backend en Django, incluyendo la integración de las APIs de IA.
+                    </p>
+
+                    <!--
+                      .project-details-grid → grid interno de 3 columnas (Backend, IA, Frontend).
+                      Ver projects.css para los estilos.
+                    -->
+                    <div class="project-details-grid">
+
+                        <!-- Columna 1: Backend & BD (color violeta) -->
+                        <div>
+                            <!--
+                              .tech-col-title → tamaño y margen del título de columna.
+                              El color se mantiene inline porque cada columna usa un acento distinto.
+                            -->
+                            <h4 class="tech-col-title" style="color: var(--accent-secondary);">Backend & BD</h4>
+                            <!--
+                              .tech-col-list → list-style:none (las viñetas "•" van en el HTML).
+                              Ver projects.css.
+                            -->
+                            <ul class="tech-col-list">
+                                <li>• Python 3.10+ (Django)</li>
+                                <li>• PostgreSQL (Supabase)</li>
+                                <li>• VPS Linux (Nginx/Gunicorn)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Columna 2: IA & Data (color verde) -->
+                        <div>
+                            <h4 class="tech-col-title" style="color: var(--accent-tertiary);">IA & Data</h4>
+                            <ul class="tech-col-list">
+                                <li>• Google Gemini API (NLP)</li>
+                                <li>• Prophet (Predicciones)</li>
+                                <li>• Metabase (BI)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Columna 3: Frontend (color azul) -->
+                        <div>
+                            <h4 class="tech-col-title" style="color: var(--accent-primary);">Frontend</h4>
+                            <ul class="tech-col-list">
+                                <li>• HTML5 / CSS3 / JS</li>
+                                <li>• Bootstrap 5</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!--
+                      .project-tags → flex con margin-top:auto empuja los tags
+                      al fondo de la tarjeta (ver projects.css).
+                    -->
+                    <div class="project-tags">
+                        <span>#Python</span>
+                        <span>#Django</span>
+                        <span>#PostgreSQL</span>
+                        <span>#BusinessIntelligence</span>
+                        <span>#Scrum</span>
+                    </div>
+
+                    <!-- Fila del botón del proyecto destacado -->
+                    <div class="featured-link-row">
+                        <a href="https://clickbot.store/" target="_blank" rel="noopener" class="btn btn-primary">
+                            Ver Proyecto <i data-feather="external-link"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- ============================================
+              PROYECTO 2: FinChile — Dashboard Financiero
+              ============================================ -->
+            <div class="glass-card">
+                <!--
+                  .project-icon-row → fila que contiene el ícono del proyecto.
+                  justify-content: space-between por si se agrega un badge futuro.
+                -->
+                <div class="project-icon-row">
+                    <i data-feather="trending-up" style="color: var(--accent-primary); width: 40px; height: 40px;"></i>
+                </div>
+
+                <h3>FinChile — Dashboard Financiero</h3>
+
+                <!-- .project-desc → color muted y márgenes estándar -->
+                <p class="project-desc">
+                    Aplicación web interactiva que consume la API de Mindicador.cl en tiempo real.
+                    Conversor de divisas multidireccional con TypeScript, gráficos históricos de
+                    los últimos 30 días con Chart.js y diseño responsive en CSS puro.
+                    Desplegada en Netlify con CI/CD.
+                </p>
+
+                <!-- Tags de tecnología (empujados al fondo por margin-top:auto) -->
+                <div class="project-tags">
+                    <span>TypeScript</span>
+                    <span>Vite</span>
+                    <span>Chart.js</span>
+                    <span>REST API</span>
+                    <span>Netlify</span>
+                </div>
+
+                <!-- .project-link-row → margen superior antes del link -->
+                <div class="project-link-row">
+                    <!-- .project-link → azul con hover de opacidad (ver projects.css) -->
+                    <a href="https://conversor-cl.netlify.app/"
+                       target="_blank"
+                       rel="noopener"
+                       class="project-link">
+                        Ver Proyecto <i data-feather="external-link" style="width: 14px; height: 14px;"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+              PROYECTO 3: EvenProd — Landing Page
+              ============================================ -->
+            <div class="glass-card">
+                <div class="project-icon-row">
+                    <i data-feather="layers" style="color: var(--accent-primary); width: 40px; height: 40px;"></i>
+                </div>
+
+                <h3>EvenProd — Landing Page de Eventos</h3>
+
+                <p class="project-desc">
+                    Landing page para agencia de eventos con CSS Grid, diseño responsive y
+                    menú hamburguesa funcional. Formulario de contacto integrado con Formspree
+                    para envío real de correos. HTML, CSS y JavaScript vanilla.
+                </p>
+
+                <div class="project-tags">
+                    <span>HTML5</span>
+                    <span>CSS Grid</span>
+                    <span>JavaScript</span>
+                    <span>Responsive</span>
+                    <span>Formspree</span>
+                </div>
+
+                <div class="project-link-row">
+                    <a href="https://eventprod.netlify.app"
+                       target="_blank"
+                       rel="noopener"
+                       class="project-link">
+                        Ver Proyecto <i data-feather="external-link" style="width: 14px; height: 14px;"></i>
+                    </a>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+              PROYECTO 4: BlackJack — Juego de Cartas
+              ============================================ -->
+            <div class="glass-card">
+                <div class="project-icon-row">
+                    <i data-feather="cpu" style="color: var(--accent-primary); width: 40px; height: 40px;"></i>
+                </div>
+
+                <h3>BlackJack — Juego de Cartas</h3>
+
+                <p class="project-desc">
+                    Juego de BlackJack interactivo construido con JavaScript puro aplicando
+                    el patrón módulo (IIFE) para encapsulación del estado. Lógica completa
+                    de turnos, cálculo de puntos y condiciones de victoria. Sin frameworks.
+                </p>
+
+                <div class="project-tags">
+                    <span>JavaScript</span>
+                    <span>Patrón Módulo</span>
+                    <span>IIFE</span>
+                    <span>Bootstrap 4</span>
+                </div>
+
+                <div class="project-link-row">
+                    <a href="https://blackjack-gamecard.netlify.app"
+                       target="_blank"
+                       rel="noopener"
+                       class="project-link">
+                        Ver Proyecto <i data-feather="external-link" style="width: 14px; height: 14px;"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

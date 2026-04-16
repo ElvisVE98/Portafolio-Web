@@ -1,0 +1,269 @@
+<!--
+  certifications.html — Componente: Certificaciones y Cursos
+  ===========================================================
+  Muestra las credenciales en un grid responsivo de tarjetas.
+
+  CÓMO AGREGAR una certificación nueva:
+    Copia una <div class="glass-card"> completa y pégala
+    dentro de <div class="cert-grid">. Luego edita:
+      · data-feather="nombre"      → ícono (ver feathericons.com)
+      · style="color: var(--accent-???)" en .cert-institution → color del texto
+      · <h3 class="cert-name">    → nombre del curso/título
+      · <p class="cert-institution"> → nombre de la institución
+      · <span class="cert-date">  → mes y año (ej: "Mar. 2026")
+      · <p class="cert-desc">     → qué aprendiste
+      · <div class="skill-tag">   → temas cubiertos
+      · <p class="cert-id">       → código de verificación (opcional)
+      · <a class="cert-link">     → link al certificado
+
+  TIPOS DE LINK:
+    · PDF local:   href="docs/archivo.pdf" target="_blank"
+    · URL externa: href="https://..." target="_blank"
+
+  CLASES CSS (ver src/css/certifications.css):
+    .cert-grid         → grid responsivo de tarjetas
+    .cert-header       → fila superior (ícono + nombre + fecha)
+    .cert-header-left  → agrupa ícono e institución en fila
+    .cert-icon         → fondo del ícono
+    .cert-name         → nombre del título/curso
+    .cert-institution  → nombre de la institución (color inline por variación)
+    .cert-date         → fecha en formato pastilla
+    .cert-content      → cuerpo de la tarjeta (descripción + tags + link)
+    .cert-desc         → párrafo descriptivo
+    .cert-id           → código de verificación en monoespacio
+    .cert-link         → enlace al certificado (color inline por variación)
+-->
+
+<section id="certifications">
+    <div class="container">
+
+        <h2 class="section-title">
+            Credenciales & <span class="highlight">Cursos</span>
+        </h2>
+
+        <!--
+          .cert-grid → grid CSS con repeat(auto-fit, minmax(280px, 1fr))
+          Se reorganiza automáticamente según el ancho disponible.
+          Ver certifications.css para los detalles.
+        -->
+        <div class="cert-grid">
+
+            <!-- ============================================
+              CERTIFICACIÓN 1: Título Universitario
+              Link a PDF local en carpeta docs/
+              ============================================ -->
+            <div class="glass-card">
+                <div class="cert-header">
+
+                    <!-- .cert-header-left agrupa ícono + nombre en una fila -->
+                    <div class="cert-header-left">
+                        <div class="cert-icon">
+                            <i data-feather="award" style="color: var(--accent-primary); width: 24px; height: 24px;"></i>
+                        </div>
+                        <div>
+                            <!-- .cert-name: nombre del título/certificado -->
+                            <h3 class="cert-name">Ingeniero en Informática</h3>
+                            <!--
+                              .cert-institution: nombre de la institución.
+                              El color se mantiene inline porque varía por tarjeta.
+                            -->
+                            <p class="cert-institution" style="color: var(--accent-primary);">DUOC UC</p>
+                        </div>
+                    </div>
+
+                    <!-- Fecha en formato pastilla -->
+                    <span class="cert-date">Feb. 2026</span>
+                </div>
+
+                <div class="cert-content">
+                    <!-- .cert-body → flex:1 para llenar el ancho disponible (ver certifications.css) -->
+                    <div class="cert-body">
+                        <!-- .cert-desc: descripción del contenido aprendido -->
+                        <p class="cert-desc">
+                            Título profesional de Ingeniería en Informática, con formación en desarrollo
+                            de software, bases de datos, redes y gestión de proyectos tecnológicos.
+                        </p>
+
+                        <!--
+                          Los skill-tags dentro de .cert-grid son más pequeños
+                          gracias al selector .cert-grid .skill-tag en certifications.css.
+                          No es necesario ningún style inline aquí.
+                        -->
+                        <div class="skills-container">
+                            <div class="skill-tag tech">Desarrollo de Software</div>
+                            <div class="skill-tag tech">Programación</div>
+                            <div class="skill-tag tech">Bases de Datos</div>
+                        </div>
+
+                        <!-- .cert-id: código de verificación del certificado -->
+                        <p class="cert-id">ID: 2481476133</p>
+
+                        <!--
+                          .cert-link: enlace para ver/validar el certificado.
+                          target="_blank" → abre en pestaña nueva.
+                          rel="noopener"  → seguridad con target="_blank".
+                          El color se mantiene inline porque varía por institución.
+                        -->
+                        <a href="docs/5c6a45c9-bb80-4469-a494-eb095eac455c.pdf"
+                           target="_blank"
+                           rel="noopener"
+                           class="cert-link"
+                           style="color: var(--accent-primary);">
+                            Ver Certificado <i data-feather="file-text" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+              CERTIFICACIÓN 2: Udemy — TypeScript
+              ============================================ -->
+            <div class="glass-card">
+                <div class="cert-header">
+                    <div class="cert-header-left">
+                        <div class="cert-icon">
+                            <i data-feather="terminal" style="color: var(--accent-tertiary); width: 24px; height: 24px;"></i>
+                        </div>
+                        <div>
+                            <h3 class="cert-name">TypeScript: Tu completa guía y manual de mano</h3>
+                            <p class="cert-institution" style="color: var(--accent-tertiary);">UDEMY</p>
+                        </div>
+                    </div>
+                    <span class="cert-date">Mar. 2026</span>
+                </div>
+
+                <div class="cert-content">
+                    <!-- .cert-body → flex:1 para llenar el ancho disponible (ver certifications.css) -->
+                    <div class="cert-body">
+                        <p class="cert-desc">
+                            Tipado estático, interfaces, generics y mejores prácticas para construir
+                            aplicaciones escalables y seguras con TypeScript.
+                        </p>
+                        <div class="skills-container">
+                            <div class="skill-tag data">TypeScript</div>
+                            <div class="skill-tag data">Frontend</div>
+                            <div class="skill-tag data">Tipado Estático</div>
+                        </div>
+                        <a href="https://www.udemy.com/certificate/UC-0c19b4d6-a470-45fc-ba1e-93c098a11a20/"
+                           target="_blank"
+                           rel="noopener"
+                           class="cert-link"
+                           style="color: var(--accent-tertiary);">
+                            Validar Credencial <i data-feather="external-link" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+              CERTIFICACIÓN 3: Udemy — JavaScript
+              ============================================ -->
+            <div class="glass-card">
+                <div class="cert-header">
+                    <div class="cert-header-left">
+                        <div class="cert-icon">
+                            <i data-feather="zap" style="color: var(--accent-primary); width: 24px; height: 24px;"></i>
+                        </div>
+                        <div>
+                            <h3 class="cert-name">JavaScript Moderno: Guía para dominar el lenguaje</h3>
+                            <p class="cert-institution" style="color: var(--accent-primary);">UDEMY</p>
+                        </div>
+                    </div>
+                    <span class="cert-date">Feb. 2026</span>
+                </div>
+
+                <div class="cert-content">
+                    <!-- .cert-body → flex:1 para llenar el ancho disponible (ver certifications.css) -->
+                    <div class="cert-body">
+                        <p class="cert-desc">
+                            JavaScript moderno completo: ES6+, async/await, Fetch API,
+                            manipulación del DOM, módulos y patrones de desarrollo actuales.
+                        </p>
+                        <div class="skills-container">
+                            <div class="skill-tag tech">JavaScript</div>
+                            <div class="skill-tag tech">Fetch API</div>
+                            <div class="skill-tag tech">ES6+</div>
+                        </div>
+                        <a href="https://www.udemy.com/certificate/UC-cbc23a2f-34b7-421f-a0a2-728c6aa39ca1/"
+                           target="_blank"
+                           rel="noopener"
+                           class="cert-link"
+                           style="color: var(--accent-primary);">
+                            Validar Credencial <i data-feather="external-link" style="width: 14px; height: 14px;"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+              CERTIFICACIÓN 4: Cisco — Python
+              ============================================ -->
+            <div class="glass-card">
+                <div class="cert-header">
+                    <div class="cert-header-left">
+                        <div class="cert-icon">
+                            <i data-feather="code" style="color: var(--accent-tertiary); width: 24px; height: 24px;"></i>
+                        </div>
+                        <div>
+                            <h3 class="cert-name">PCAP: Programming Essentials in Python</h3>
+                            <p class="cert-institution" style="color: var(--accent-tertiary);">CISCO NETWORKING ACADEMY</p>
+                        </div>
+                    </div>
+                    <span class="cert-date">May. 2022</span>
+                </div>
+
+                <div class="cert-content">
+                    <!-- .cert-body → flex:1 para llenar el ancho disponible (ver certifications.css) -->
+                    <div class="cert-body">
+                        <p class="cert-desc">
+                            Certificación oficial en fundamentos y programación esencial con Python,
+                            estructuras de datos y programación orientada a objetos.
+                        </p>
+                        <div class="skills-container">
+                            <div class="skill-tag data">Python Core</div>
+                            <div class="skill-tag data">OOP</div>
+                            <div class="skill-tag data">Data Structures</div>
+                        </div>
+                        <!-- Esta certificación no tiene link externo de verificación -->
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ============================================
+              CERTIFICACIÓN 5: TOEIC — Inglés
+              ============================================ -->
+            <div class="glass-card">
+                <div class="cert-header">
+                    <div class="cert-header-left">
+                        <div class="cert-icon">
+                            <i data-feather="globe" style="color: var(--accent-primary); width: 24px; height: 24px;"></i>
+                        </div>
+                        <div>
+                            <h3 class="cert-name">TOEIC — Inglés Profesional</h3>
+                            <p class="cert-institution" style="color: var(--accent-primary);">ETS</p>
+                        </div>
+                    </div>
+                    <span class="cert-date">Dic. 2024</span>
+                </div>
+
+                <div class="cert-content">
+                    <!-- .cert-body → flex:1 para llenar el ancho disponible (ver certifications.css) -->
+                    <div class="cert-body">
+                        <p class="cert-desc">
+                            Certificación internacional de inglés orientada al entorno profesional,
+                            habilitando la lectura de documentación técnica y comunicación en
+                            equipos de trabajo.
+                        </p>
+                        <!-- .cert-id: código de verificación del examen -->
+                        <p class="cert-id">ID: 26731371</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,141 @@
+<!--
+  hero.html — Componente: Sección de Presentación Principal
+  ===========================================================
+  Primera sección visible del sitio. Presenta al desarrollador
+  con nombre, descripción, skills y foto de perfil.
+
+  CÓMO EDITAR:
+    - Badge de disponibilidad: texto en <span class="badge">
+    - Título: contenido del <h1>
+    - Descripción: contenido del <p class="hero-desc">
+    - Foto: cambia el src del <img class="profile-img"> por tu foto
+             (copia la imagen a la carpeta img/)
+    - Skills: agrega/quita <div class="skill-tag"> en cada grupo
+      · skill-tag tech → tecnologías web (hover azul)
+      · skill-tag data → automatización/datos (hover verde)
+
+  Para íconos: visita feathericons.com y usa el nombre en data-feather=""
+-->
+
+<!-- id="hero" permite que href="#hero" en el menú navegue aquí -->
+<section id="hero">
+    <div class="container hero-grid">
+
+        <!-- =============================================
+          COLUMNA IZQUIERDA: Texto de presentación
+          ============================================= -->
+        <div class="hero-content">
+
+            <!-- Etiqueta de estado/disponibilidad laboral -->
+            <span class="badge">Disponible para nuevos retos (Remoto/Híbrido)</span>
+
+            <!--
+              <h1> — El título principal de la página.
+              Solo debe haber UN <h1> por página (SEO y accesibilidad).
+              <span class="highlight"> aplica el gradiente azul-violeta al texto.
+              <br> fuerza un salto de línea.
+            -->
+            <h1>
+                Desarrollo Web <br>
+                <span class="highlight">Código que resuelve.</span>
+            </h1>
+
+            <!--
+              Párrafo de descripción personal.
+              <strong> marca texto importante (también visualmente en negrita).
+            -->
+            <p class="hero-desc">
+                Hola, soy <strong>Elvis Velasquez</strong>. Ingeniero en Informática
+                egresado de <strong>Duoc UC</strong>, con experiencia en desarrollo de
+                aplicaciones internas <strong>web</strong>, automatización de procesos
+                y análisis de datos con SQL. Me enfoco en construir soluciones prácticas
+                para mejorar procesos y aportar valor al negocio. Actualmente sigo
+                fortaleciendo mi camino como <strong>Software Developer Full Stack</strong>,
+                aprendiendo de forma constante nuevas tecnologías y trabajando con
+                JavaScript, TypeScript, <strong>Node.js</strong>, Python (Django) y PostgreSQL.
+            </p>
+
+            <!-- Botones de llamada a la acción (CTA = Call To Action) -->
+            <div class="cta-buttons">
+                <!--
+                  href="#projects" → al hacer clic, navega a la sección de proyectos.
+                  class="btn btn-primary" → botón con fondo gradiente (definido en base.css)
+                -->
+                <a href="#projects" class="btn btn-primary">
+                    Ver Proyectos <i data-feather="arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    Contáctame
+                </a>
+            </div>
+
+            <!-- GRUPOS DE HABILIDADES TÉCNICAS -->
+            <!-- .skills-wrapper agrega el margen superior (ver hero.css) -->
+            <div class="skills-wrapper">
+
+                <!-- Grupo 1: Tecnologías de desarrollo web y backend -->
+                <div class="skills-group">
+                    <span class="skills-label">Desarrollo Web & Backend</span>
+                    <div class="skills-container">
+                        <!--
+                          skill-tag tech → hover azul (var(--accent-primary))
+                          data-feather → nombre del ícono de feathericons.com
+                        -->
+                        <div class="skill-tag tech"><i data-feather="code"></i>HTML/CSS</div>
+                        <div class="skill-tag tech"><i data-feather="code"></i>JavaScript/TypeScript</div>
+                        <div class="skill-tag tech"><i data-feather="database"></i>SQL Server / PostgreSQL</div>
+                        <div class="skill-tag tech"><i data-feather="terminal"></i>Node.js/Python (Django)</div>
+                        <div class="skill-tag tech"><i data-feather="cpu"></i>Git/GitHub</div>
+                    </div>
+                </div>
+
+                <!-- Grupo 2: Herramientas de automatización y datos -->
+                <div class="skills-group">
+                    <!--
+                      .skills-label--data sobreescribe el color del label a verde.
+                      Se usa porque este grupo (datos/automatización) se diferencia
+                      del grupo de tecnologías web con un color distinto.
+                      Ver hero.css para la definición de esta clase.
+                    -->
+                    <span class="skills-label skills-label--data">Automatización & Datos</span>
+                    <div class="skills-container">
+                        <!-- skill-tag data → hover verde (var(--accent-tertiary)) -->
+                        <div class="skill-tag data"><i data-feather="bar-chart-2"></i>Power Automate</div>
+                        <div class="skill-tag data"><i data-feather="grid"></i>Power Apps</div>
+                        <div class="skill-tag data"><i data-feather="grid"></i>Power BI</div>
+                        <div class="skill-tag data"><i data-feather="file-text"></i>Excel Avanzado (Macros) / SQL Server</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- =============================================
+          COLUMNA DERECHA: Foto de perfil animada
+          ============================================= -->
+        <div class="profile-column">
+            <div class="profile-container">
+                <!--
+                  .profile-blob → forma orgánica animada detrás de la foto.
+                  Es un <div> vacío estilizado solo con CSS (border-radius + animación).
+                  Ver hero.css para el @keyframes blob-bounce.
+                -->
+                <div class="profile-blob"></div>
+
+                <!--
+                  <img> → elemento de imagen.
+                  src   → ruta relativa desde index.html (en la raíz del proyecto)
+                  alt   → descripción de la imagen (accesibilidad + SEO)
+                  PARA CAMBIAR LA FOTO: reemplaza FOTO_RETRATO.jpeg en la carpeta img/
+                  o cambia el src a la ruta de tu nueva imagen.
+                -->
+                <img
+                    src="img/FOTO_RETRATO.jpeg"
+                    alt="Foto de perfil de Elvis Velasquez"
+                    class="profile-img"
+                >
+            </div>
+        </div>
+
+    </div>
+</section>

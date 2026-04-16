@@ -1,0 +1,72 @@
+/*
+ * contact.css — Sección de contacto
+ * ====================================
+ * Sección centrada con email, texto y links a redes sociales.
+ * Es la sección más simple — solo requiere centrar el contenido.
+ */
+
+
+/* =================================================================
+   CAJA DE CONTACTO
+   =================================================================
+   text-align: center → Centra todo el texto
+   max-width + margin: 0 auto → Limita el ancho y centra el bloque
+   ================================================================= */
+.contact-box {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
+/* =================================================================
+   ELEMENTOS INTERNOS DE CONTACTO
+   ================================================================= */
+
+/* Subtítulo monoespacio sobre el título principal ("¿Hablamos?") */
+.contact-subtitle {
+    font-size: 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Título principal de la sección */
+.contact-title {
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+/* Párrafo de disponibilidad y descripción de modalidad de trabajo */
+.contact-desc {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+/*
+ * .btn-contact — Modificador del botón estándar (.btn .btn-primary)
+ * para hacerlo más grande en la sección de contacto.
+ * Se combina con las clases base:
+ *   <a class="btn btn-primary btn-contact">
+ */
+.btn-contact {
+    font-size: 1.2rem;
+    padding: 18px 40px;
+}
+
+/* Fila de íconos de redes sociales */
+.social-links {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Link individual de red social */
+.social-link {
+    color: var(--text-muted);
+    transition: color 0.3s;
+}
+
+/* Al hacer hover el ícono se ilumina con el acento azul */
+.social-link:hover {
+    color: var(--accent-primary);
+}
