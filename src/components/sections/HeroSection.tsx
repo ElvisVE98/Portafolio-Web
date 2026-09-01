@@ -1,15 +1,12 @@
 import React from 'react';
 import { ArrowRight, MapPin, GraduationCap, Code2, Send, ChevronDown } from 'lucide-react';
-import { PERSONAL_DATA } from '../../data/personal.data';
+import { DATOS_PERSONALES } from '../../data/personal.data';
 import profilePhoto from '../../assets/images/FOTO_RETRATO.jpeg';
 
 /**
- * HeroSection.tsx
  * ============================================================================
- * Sección de bienvenida a pantalla completa (Full Screen min-h-screen).
- * - "Disponible para nuevos retos" sin estilo píldora, con degradado notorio.
- * - Indicador inferior animado de scroll.
- * - Micro-métricas y marco de foto tecnológico.
+ * ARCHIVO: src/components/sections/HeroSection.tsx
+ * PROPÓSITO: Sección principal de bienvenida a pantalla completa.
  * ============================================================================
  */
 export const HeroSection: React.FC = () => {
@@ -26,47 +23,44 @@ export const HeroSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* =================================================================
-              COLUMNA IZQUIERDA: Presentación
+              COLUMNA IZQUIERDA: Presentación personal
              ================================================================= */}
           <div className="lg:col-span-7 space-y-6">
             
-            {/* Texto de disponibilidad con degradado llamativo (Sin estilo píldora) */}
+            {/* Texto de disponibilidad con degradado llamativo */}
             <div className="flex items-center gap-2.5">
-
               <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-600 " />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-600" />
                 <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
               </span>
 
               <span className="text-xs sm:text-sm font-mono font-bold tracking-wide bg-linear-to-r from-violet-400 via-red-300 to-blue-400 bg-clip-text text-transparent">
-                {PERSONAL_DATA.badgeText}
+                {DATOS_PERSONALES.textoDisponibilidad}
               </span>
             </div>
 
             {/* Título Principal */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-              {PERSONAL_DATA.title} <br />
+              {DATOS_PERSONALES.titulo} <br />
               <span className="text-purple-500">
-                {PERSONAL_DATA.titleHighlight}
+                {DATOS_PERSONALES.tituloResaltado}
               </span>
             </h1>
 
             {/* Párrafo de Biografía */}
             <p className="text-base sm:text-lg text-zinc-300 leading-relaxed font-light">
-              Hola, soy <strong className="font-semibold text-white">{PERSONAL_DATA.name}</strong>. Ingeniero en Informática egresado de <strong className="font-semibold text-white">Duoc UC</strong>, enfocado en desarrollo Full Stack y tecnologías web modernas. Construyo aplicaciones rápidas, escalables y orientadas a resolver problemas reales de negocio.
+              Hola, soy <strong className="font-semibold text-white">{DATOS_PERSONALES.nombre}</strong>. Ingeniero en Informática egresado de <strong className="font-semibold text-white">Duoc UC</strong>, enfocado en desarrollo Full Stack y tecnologías web modernas. Construyo aplicaciones rápidas, escalables y orientadas a resolver problemas reales de negocio.
             </p>
 
             {/* Micro-tarjetas de datos rápidos */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
-              
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-zinc-900/80 border border-zinc-800">
                 <MapPin className="w-4 h-4 text-purple-400 shrink-0" />
                 <div>
                   <p className="text-[10px] font-mono uppercase text-zinc-500">Ubicación</p>
-                  <p className="text-xs font-semibold text-zinc-200">{PERSONAL_DATA.location}</p>
+                  <p className="text-xs font-semibold text-zinc-200">{DATOS_PERSONALES.ubicacion}</p>
                 </div>
               </div>
-
 
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-zinc-900/80 border border-zinc-800">
                 <GraduationCap className="w-4 h-4 text-purple-400 shrink-0" />
@@ -76,12 +70,11 @@ export const HeroSection: React.FC = () => {
                 </div>
               </div>
 
-
               <div className="flex items-center gap-2.5 p-3 rounded-xl bg-zinc-900/80 border border-zinc-800">
                 <Code2 className="w-4 h-4 text-purple-400 shrink-0" />
                 <div>
                   <p className="text-[10px] font-mono uppercase text-zinc-500">Enfoque</p>
-                  <p className="text-xs font-semibold text-zinc-200">Full Stack & Data</p>
+                  <p className="text-xs font-semibold text-zinc-200">Full Stack & Datos</p>
                 </div>
               </div>
             </div>
@@ -90,7 +83,7 @@ export const HeroSection: React.FC = () => {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white  text-zinc-950 font-bold text-xs sm:text-sm font-mono shadow-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.9)] hover:scale-[1.02] transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-zinc-800 hover:shadow-[0_0_20px_rgba(168,85,247,1.9)] hover:text-white text-zinc-950 font-bold text-xs sm:text-sm font-mono shadow-lg transition-all"
               >
                 <span>Ver Proyectos</span>
                 <ArrowRight className="w-4 h-4" />
@@ -98,7 +91,7 @@ export const HeroSection: React.FC = () => {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-zinc-900 border border-zinc-700 hover:border-zinc-700 hover:shadow-[0_0_20px_rgba(168,85,247,0.9)] text-zinc-300 hover:text-white font-semibold text-xs sm:text-sm font-mono transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-purple-500/40 text-zinc-300 hover:text-white font-semibold text-xs sm:text-sm font-mono transition-all"
               >
                 <Send className="w-3.5 h-3.5 text-purple-400" />
                 <span>Contáctame</span>
@@ -114,25 +107,22 @@ export const HeroSection: React.FC = () => {
             <div className="relative">
               
               {/* Esquinas decorativas sutiles */}
-              <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-white/80 z-20" />
-              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-white/80 z-20" />
+              <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-purple-400/80 z-20" />
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-purple-400/80 z-20" />
 
               {/* Marco de la foto */}
               <div className="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900/90 p-2.5 shadow-2xl">
                 <img
                   src={profilePhoto}
-                  alt={`Foto de ${PERSONAL_DATA.name}`}
+                  alt={`Foto de ${DATOS_PERSONALES.nombre}`}
                   className="w-72 h-80 sm:w-80 sm:h-96 object-cover rounded-xl"
                 />
 
                 {/* Etiqueta flotante inferior */}
                 <div className="absolute bottom-5 left-5 right-5 p-3 rounded-xl bg-[#09090b]/90 backdrop-blur-md border border-zinc-800 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    
-                    <div>
-                      <p className="text-xs font-bold text-white leading-none">{PERSONAL_DATA.name}</p>
-                      <p className="text-[10px] font-mono text-zinc-400 mt-0.5">Software Developer</p>
-                    </div>
+                  <div>
+                    <p className="text-xs font-bold text-white leading-none">{DATOS_PERSONALES.nombre}</p>
+                    <p className="text-[10px] font-mono text-zinc-400 mt-0.5">Software Developer</p>
                   </div>
                   <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 </div>
