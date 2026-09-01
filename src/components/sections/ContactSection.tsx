@@ -22,7 +22,7 @@ export const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="pt-24 pb-16 relative overflow-hidden bg-gradient-to-b from-[#09090b] via-[#1a0b2e]/40 to-[#0e071a]"
+      className="pt-24 pb-16 relative overflow-hidden bg-linear-to-b from-[#09090b] via-[#1a0b2e]/40 to-[#0e071a]"
     >
       
       {/* Resplandor ambiental púrpura suave de fondo */}
@@ -32,16 +32,13 @@ export const ContactSection: React.FC = () => {
         
         <div className="py-14 px-6 sm:px-12 rounded-3xl bg-[#120a1f]/85 border border-purple-500/20 shadow-2xl shadow-purple-950/40 backdrop-blur-2xl">
           
-          {/* Subtítulo monoespaciado (sin icono) */}
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 text-xs font-mono font-bold mb-4">
-            <span>¿Hablamos de un proyecto?</span>
-          </div>
+         
 
           {/* Título de impacto con degradado púrpura/fucsia */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
             Vamos a crear{' '}
-            <span className="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-extrabold">
-              soluciones que sumen valor
+            <span className="bg-linear-to-r from-purple-600 via-indigo-200 to-red-400 bg-clip-text text-transparent font-extrabold">
+              soluciones que agreguen valor
             </span>
           </h2>
 

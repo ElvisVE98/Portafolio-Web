@@ -12,7 +12,7 @@ import { SectionTitle } from '../ui/SectionTitle';
  */
 export const ExperienceSection: React.FC = () => {
   return (
-    <section id="experience" className="py-24 bg-gradient-to-b from-[#09090b] to-[#0e0817] relative">
+    <section id="experience" className="py-24 bg-linear-to-b from-[#09090b] to-[#1c102d] relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Título de la sección */}
@@ -46,19 +46,13 @@ export const ExperienceSection: React.FC = () => {
                 
                 {/* Cabecera del puesto */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-800/80 pb-4 mb-4">
+                
                   <div>
                     <div className="flex items-center gap-2.5 flex-wrap">
-
                       <h3 className="text-xl font-bold text-white flex items-center gap-2">
                         <Briefcase className="w-4 h-4 text-purple-400" />
                         {exp.jobTitle}
-                      </h3>
-                      {exp.isCurrent && (
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-purple/20 text-purple-300 border border-purple-400/80">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                          Rol Activo
-                        </span>
-                      )}
+                      </h3>  
                     </div>
 
                     <p className="text-sm font-semibold text-zinc-300 flex items-center gap-1.5 mt-1">

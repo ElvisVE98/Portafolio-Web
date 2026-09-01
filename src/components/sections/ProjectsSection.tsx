@@ -30,7 +30,7 @@ export const ProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-b from-[#0e0817] via-[#120a1f] to-[#0e0817] relative">
+    <section id="projects" className="py-24 bg-linear-to-b from-[#1c102d] via-[#2f1032] to-[#0d0814] relative">
       
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
