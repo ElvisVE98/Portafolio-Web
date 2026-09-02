@@ -14,7 +14,7 @@ export const TechMarqueeSection: React.FC = () => {
   const fila2Duplicada = [...TECNOLOGIAS_FILA_2, ...TECNOLOGIAS_FILA_2, ...TECNOLOGIAS_FILA_2];
 
   return (
-    <section id="tech-stack" className="py-14 bg-[#0c0c0e] border-y border-zinc-800/80 relative overflow-hidden">
+    <section id="tech-stack" className="py-14 bg-[#0c0a12] border-y border-purple-950/40 relative overflow-hidden">
       
       <div className="max-w-6xl mx-auto px-4 mb-8 flex items-center justify-between">
         <div className="flex items-center gap-2.5">

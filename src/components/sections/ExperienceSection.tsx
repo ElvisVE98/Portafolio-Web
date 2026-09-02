@@ -11,7 +11,7 @@ import { SectionTitle } from '../ui/SectionTitle';
  */
 export const ExperienceSection: React.FC = () => {
   return (
-    <section id="experience" className="py-24 bg-linear-to-b from-[#09090b] to-[#0e0817] relative">
+    <section id="experience" className="py-24 bg-linear-to-b from-[#0c0a12] via-[#0f0b18] to-[#140d22] relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Título de la sección */}
@@ -51,12 +51,7 @@ export const ExperienceSection: React.FC = () => {
                         <Briefcase className="w-4 h-4 text-purple-400" />
                         {exp.cargo}
                       </h3>
-                      {exp.esActual && (
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-purple-500/10 text-purple-300 border border-purple-500/30">
-                          <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-                          Rol Activo
-                        </span>
-                      )}
+                      
                     </div>
 
                     <p className="text-sm font-semibold text-zinc-300 flex items-center gap-1.5 mt-1">

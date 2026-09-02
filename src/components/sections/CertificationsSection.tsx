@@ -15,7 +15,7 @@ export const CertificationsSection: React.FC = () => {
   const cursosCertificaciones = CERTIFICACIONES.filter((c) => c.id !== 'duoc-degree');
 
   return (
-    <section id="certifications" className="py-24 bg-linear-to-b from-[#0e0817] to-[#09090b] relative">
+    <section id="certifications" className="py-24 bg-gradient-to-b from-[#140d22] via-[#0f0b18] to-[#0b0813] relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Título de la sección */}

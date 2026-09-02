@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * ARCHIVO: src/data/experiencia.data.ts
- * PROPÓSITO: Trayectoria laboral e historial profesional de Elvis Velásquez.
+ * PROPÓSITO: Trayectoria laboral e historial profesional real de Elvis Velásquez.
  * ============================================================================
  */
 
@@ -9,49 +9,74 @@ import { ItemExperiencia } from '../types/experiencia.types';
 
 export const EXPERIENCIAS: ItemExperiencia[] = [
   {
-    id: 'vyl-group',
-    cargo: 'Desarrollador Web Full Stack & Analista de Datos',
-    empresa: 'V&L Group SpA',
-    periodo: 'Nov. 2025 - Presente',
+    id: 'curifor',
+    cargo: 'Asistente de Sistemas',
+    empresa: 'Curifor S.A.',
+    periodo: 'Nov. 2025 – Presente',
     esActual: true,
     descripcion:
-      'Lidero el diseño, desarrollo y despliegue del nuevo sitio web corporativo de la empresa. Construí una landing page moderna e interactiva, un portal privado para clientes con autenticación en base de datos MySQL, panel de administración para subida y gestión de liquidaciones de sueldo, y el sistema de cotizaciones en línea conectado a correos corporativos.',
+      'Participación en desarrollo de soluciones internas, automatización de procesos e integración de herramientas tecnológicas en entorno empresarial.',
     logros: [
       {
-        categoria: 'Desarrollo Web Full Stack',
+        categoria: 'Desarrollo Web Fullstack',
         texto:
-          'Creación de landing page responsiva en React 19 + TypeScript + Tailwind CSS, conectada a API REST en PHP y base de datos MySQL.'
+          'Desarrollo y mantenimiento de aplicaciones internas utilizando tecnologías web modernas y consumo de APIs REST.'
       },
       {
-        categoria: 'Portal de Clientes & Seguridad',
+        categoria: 'Automatización de Procesos',
         texto:
-          'Implementación de sistema de autenticación de usuarios, portal privado con descarga de archivos y rutas protegidas con React Router.'
+          ' Implementación de flujos con Power Automate y desarrollo de aplicaciones con Power Apps, reduciendo tareas manuales del área.'
       },
       {
-        categoria: 'Automatización & BI',
+        categoria: 'Bases de Datos & SQL',
         texto:
-          'Construcción de tableros de control en Power BI y flujos de trabajo en Power Automate para optimización de procesos internos de RR.HH.'
+          'Desarrollo y optimización de consultas SQL para extracción, validación y análisis de datos desde sistema Flexline ERP.'
+      },
+      {
+        categoria: 'Cloud & BI',
+        texto:
+          'Participación en proyecto de infraestructura cloud para reportería integrada con Power BI.'
+      },
+      {
+        categoria: 'Impacto & Logro',
+        texto:
+          'Reemplazo de proceso 100% manual en Excel por plataforma web, reduciendo reportes de horas a minutos.'
       }
     ]
   },
   {
-    id: 'practica-profesional',
-    cargo: 'Ingeniero en Informática (Práctica Profesional)',
-    empresa: 'Proyectos & Soluciones Digitales',
-    periodo: '2024 - 2025',
+    id: 'tecno-fast',
+    cargo: 'Administrativo de Logística',
+    empresa: 'Tecno Fast S.A.',
+    periodo: 'May. 2018 – Nov. 2025',
     esActual: false,
     descripcion:
-      'Participación activa en el desarrollo de software aplicando metodologías ágiles (Scrum). Diseño de esquemas de bases de datos relacionales en PostgreSQL y SQL Server, desarrollo de endpoints backend en Node.js y Python/Django, y maquetación de interfaces web dinámicas.',
+      'Gestión operativa y mejora continua de procesos administrativos a través de herramientas de análisis y automatización durante más de 7 años.',
     logros: [
       {
-        categoria: 'Bases de Datos & Backend',
+        categoria: 'Automatización & VBA',
         texto:
-          'Modelado relacional y consultas optimizadas en PostgreSQL y Supabase para aplicaciones web de alto tráfico.'
+          'Automatización de procesos administrativos mediante Excel VBA y flujos en Power Automate.'
       },
       {
-        categoria: 'Integración de APIs & IA',
+        categoria: 'Business Intelligence',
         texto:
-          'Consumo de servicios RESTful e integración de modelos de lenguaje natural con Google Gemini API.'
+          'Desarrollo de Dashboards en Power BI para el monitoreo continuo de KPIs logísticos.'
+      },
+      {
+        categoria: 'Sistemas ERP (SAP HANA)',
+        texto:
+          'Gestión y análisis de estados de pago utilizando SAP HANA.'
+      },
+      {
+        categoria: 'Análisis de Costos',
+        texto:
+          'Generación de reportes operacionales y análisis de costos logísticos para la toma de decisiones.'
+      },
+      {
+        categoria: 'Impacto & Logro',
+        texto:
+          'Reducción de tiempos de procesamiento manual y mejora significativa en la visibilidad operativa del área.'
       }
     ]
   }

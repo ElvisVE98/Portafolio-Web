@@ -23,7 +23,7 @@ export const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="pt-24 pb-16 relative overflow-hidden bg-linear-to-b from-[#09090b] via-[#1a0b2e]/40 to-[#0e071a]"
+      className="pt-24 pb-16 relative overflow-hidden bg-gradient-to-b from-[#0b0813] via-[#1a0b2e]/40 to-[#0e071a]"
     >
       
       {/* Resplandor ambiental púrpura suave de fondo */}
@@ -42,7 +42,7 @@ export const ContactSection: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
             Vamos a crear{' '}
             <span className="bg-linear-to-r from-purple-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent font-extrabold">
-              soluciones que sumen valor
+              soluciones que generan valor
             </span>
           </h2>
 
