@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowRight, MapPin, GraduationCap, Code2, Send, ChevronDown } from 'lucide-react';
 import { DATOS_PERSONALES } from '../../data/personal.data';
-import profilePhoto from '../../assets/images/FOTO_RETRATO.jpeg';
+import profilePhoto from '../../assets/images/FOTO_RETRATO2.jpeg';
 
 /**
  * ============================================================================
