@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, FileDown } from 'lucide-react';
 import { DATOS_PERSONALES } from '../../data/personal.data';
+import logo from '../../assets/images/logo.png'
 
 /**
  * ============================================================================
@@ -37,7 +38,7 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         conScroll
-          ? 'bg-[#09090b]/90 backdrop-blur-md border-b border-zinc-800 shadow-xl shadow-black/40 py-3'
+          ? 'bg-bg-base/50 backdrop-blur-md border-b border-zinc-800 shadow-xl shadow-black/40 py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -46,8 +47,16 @@ export const Navbar: React.FC = () => {
         {/* Logo y Nombre */}
         <a
           href="#hero"
-          className="flex items-center gap-2.5 group text-white font-bold text-base tracking-tight transition-colors"
-        >
+          className="flex items-center gap-2.5 group text-white font-bold text-base tracking-tight transition-colors">
+
+          {/*LOGO*/}
+          <img
+          src={logo}
+          alt='Logo Elvis Velasquez'
+          className="w-8 h-8 object-contain rounded-lg transition-transform duration-300 group-hover:scale-105">
+          </img>
+           
+          {/*NOMBRE*/}
           <span className="text-2xl">
             Elvis{' '}
             <span className="bg-linear-to-r from-purple-400 to-fuchsia-500 bg-clip-text text-transparent font-extrabold">
@@ -55,6 +64,7 @@ export const Navbar: React.FC = () => {
             </span>
           </span>
         </a>
+
 
         {/* Enlaces para pantalla de computador */}
         <nav className="hidden md:flex items-center gap-7">
@@ -68,13 +78,14 @@ export const Navbar: React.FC = () => {
             </a>
           ))}
 
+
           {/* Botón Descargar CV */}
           <a
             href={DATOS_PERSONALES.rutaCv}
             target="_blank"
             rel="noopener noreferrer"
             download="CV - Evelasquez.pdf"
-            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-mono font-bold rounded-lg bg-white hover:bg-zinc-800 hover:shadow-[0_0_20px_rgba(168,85,247,1.9)] hover:text-white text-zinc-950 shadow-sm transition-all"
+            className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-mono font-bold rounded-lg bg-white hover:bg-zinc-700 hover:shadow-[0_0_20px_rgba(168,85,247,1.9)] hover:text-white text-zinc-950 shadow-sm transition-all"
           >
             <FileDown className="w-3.5 h-3.5" />
             <span>Descargar CV</span>
