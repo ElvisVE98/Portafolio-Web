@@ -142,8 +142,8 @@ export const PROYECTOS: Proyecto[] = [
     categoria: 'frontend',
     rutaImagen: '/img/projects/evenprod.png',
     descripcion:
-      'Landing page para agencia de eventos con CSS Grid, diseño responsive y menú hamburguesa funcional. Formulario de contacto integrado con Formspree para recepción de cotizaciones.',
-    etiquetas: ['HTML5', 'CSS Grid', 'JavaScript', 'Responsive', 'Formspree'],
+      'Plataforma web moderna y responsiva para productora de eventos de autor, desarrollada con React y Tailwind CSS. Incluye diseño Glassmorphism, bento grids, modal lightbox interactivo y formulario de cotizaciones validado.',
+    etiquetas: ['React', 'Typescript', 'Tailwind CSS', 'Vite', 'Lucide React','Responsive Design'],
     enlaceDemo: 'https://eventprod.netlify.app'
   }
 ];
