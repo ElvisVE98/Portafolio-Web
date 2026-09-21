@@ -1,7 +1,7 @@
 /**
  * ============================================================================
  * ARCHIVO: src/data/certificaciones.data.ts
- * PROPÓSITO: Título universitario y certificaciones oficiales de Elvis Velásquez.
+ * PROPÓSITO: Título universitario y certificaciones oficiales reales de Elvis Velásquez.
  * ============================================================================
  */
 
@@ -15,10 +15,10 @@ export const CERTIFICACIONES: ItemCertificacion[] = [
     colorInstitucion: 'cyan',
     fecha: 'Feb. 2026',
     descripcion:
-      'Título profesional de Ingeniería en Informática, con formación integral en desarrollo de software, bases de datos relacionales, redes, arquitectura de sistemas y gestión de proyectos tecnológicos.',
-    habilidades: ['Desarrollo de Software', 'Programación Web', 'Bases de Datos', 'Arquitectura'],
+      'Título profesional de Ingeniería en Informática, con formación en desarrollo de software, bases de datos, redes y gestión de proyectos tecnológicos.',
+    habilidades: ['Desarrollo de Software', 'Programación', 'Bases de Datos'],
     idCertificado: '2481476133',
-    enlaceUrl: '/docs/5c6a45c9-bb80-4469-a494-eb095eac455c.pdf',
+    enlaceUrl: '/docs/certificadoTitulo.pdf',
     textoEnlace: 'Ver Certificado (PDF)',
     esEnlaceExterno: true
   },
@@ -29,67 +29,57 @@ export const CERTIFICACIONES: ItemCertificacion[] = [
     colorInstitucion: 'emerald',
     fecha: 'Mar. 2026',
     descripcion:
-      'Dominio de tipado estático avanzado, interfaces, genéricos, decoradores, tipos utilitarios y patrones de diseño en TypeScript aplicado a proyectos reales de frontend y backend.',
-    habilidades: ['TypeScript', 'Tipado Estático', 'Genéricos', 'Clean Code'],
-    idCertificado: 'UC-616140ad-3f12-4217-ad91-cf3df860eb63',
-    enlaceUrl: 'https://www.udemy.com/certificate/UC-616140ad-3f12-4217-ad91-cf3df860eb63/',
+      'Tipado estático, interfaces, generics y mejores prácticas para construir aplicaciones escalables y seguras con TypeScript.',
+    habilidades: ['TypeScript', 'Frontend', 'Tipado Estático'],
+    enlaceUrl: 'https://www.udemy.com/certificate/UC-0c19b4d6-a470-45fc-ba1e-93c098a11a20/',
     textoEnlace: 'Validar Credencial',
     esEnlaceExterno: true
   },
   {
-    id: 'udemy-node',
-    nombre: 'Node.js: De cero a experto (Edición 2025)',
+    id: 'udemy-javascript',
+    nombre: 'JavaScript Moderno: Guía para dominar el lenguaje',
     institucion: 'UDEMY',
-    colorInstitucion: 'emerald',
-    fecha: 'Dic. 2025',
+    colorInstitucion: 'cyan',
+    fecha: 'Feb. 2026',
     descripcion:
-      'Construcción de APIs RESTful robustas y seguras con Express, autenticación mediante JSON Web Tokens (JWT), middlewares, subida de archivos y despliegues en servidores en la nube.',
-    habilidades: ['Node.js', 'Express', 'JWT', 'REST APIs', 'Postman'],
-    idCertificado: 'UC-b9f1d06e-82df-427c-9b88-c70e28f110c7',
-    enlaceUrl: 'https://www.udemy.com/certificate/UC-b9f1d06e-82df-427c-9b88-c70e28f110c7/',
+      'JavaScript moderno completo: ES6+, async/await, Fetch API, manipulación del DOM, módulos y patrones de desarrollo actuales.',
+    habilidades: ['JavaScript', 'Fetch API', 'ES6+'],
+    enlaceUrl: 'https://www.udemy.com/certificate/UC-cbc23a2f-34b7-421f-a0a2-728c6aa39ca1/',
     textoEnlace: 'Validar Credencial',
     esEnlaceExterno: true
   },
   {
-    id: 'udemy-react',
-    nombre: 'React: De cero a experto ( Hooks y MERN )',
+    id: 'udemy-nodejs',
+    nombre: 'Node.js: De Cero a Experto',
     institucion: 'UDEMY',
+    colorInstitucion: 'cyan',
+    fecha: 'Jul. 2026',
+    descripcion:
+      'Desarrollo backend con Node.js y Express: APIs RESTful, persistencia de datos con MongoDB y Prisma ORM, comunicación en tiempo real con WebSockets, integración de Webhooks y contenerización con Docker.',
+    habilidades: ['Node.js', 'Express', 'Docker', 'REST API', 'Prisma', 'MongoDB'],
+    enlaceUrl: 'https://www.udemy.com/certificate/UC-e042e003-4a32-44d7-8a21-60f08e555f61/',
+    textoEnlace: 'Validar Credencial',
+    esEnlaceExterno: true
+  },
+  {
+    id: 'cisco-python',
+    nombre: 'PCAP: Programming Essentials in Python',
+    institucion: 'CISCO NETWORKING ACADEMY',
     colorInstitucion: 'emerald',
-    fecha: 'Oct. 2025',
+    fecha: 'May. 2022',
     descripcion:
-      'Desarrollo de Single Page Applications con React, manejo avanzado del estado (Context API, Redux Toolkit), Custom Hooks, optimización de renderizado y conexión con APIs REST.',
-    habilidades: ['React', 'Hooks', 'Context API', 'State Management'],
-    idCertificado: 'UC-678a1f73-ef46-4a69-80da-3df4c2c8f85f',
-    enlaceUrl: 'https://www.udemy.com/certificate/UC-678a1f73-ef46-4a69-80da-3df4c2c8f85f/',
-    textoEnlace: 'Validar Credencial',
-    esEnlaceExterno: true
+      'Certificación oficial en fundamentos y programación esencial con Python, estructuras de datos y programación orientada a objetos.',
+    habilidades: ['Python Core', 'OOP', 'Data Structures']
   },
   {
-    id: 'santander-excel',
-    nombre: 'Excel: De Cero a Avanzado',
-    institucion: 'SANTANDER OPEN ACADEMY',
-    colorInstitucion: 'red',
-    fecha: 'Mar. 2025',
-    descripcion:
-      'Modelado de datos financieros, tablas dinámicas avanzadas, funciones complejas de búsqueda y automatización de procesos mediante macros VBA para optimización operativa.',
-    habilidades: ['Excel Avanzado', 'Macros VBA', 'Tablas Dinámicas', 'Análisis de Datos'],
-    idCertificado: 'SOA-2025-EXCEL-001',
-    enlaceUrl: 'https://www.santanderopenacademy.com/',
-    textoEnlace: 'Validar Credencial',
-    esEnlaceExterno: true
-  },
-  {
-    id: 'duoc-bd',
-    nombre: 'Acreditación en Modelamiento y Construcción de Bases de Datos',
-    institucion: 'DUOC UC',
+    id: 'ets-toeic',
+    nombre: 'TOEIC — Inglés Profesional',
+    institucion: 'ETS',
     colorInstitucion: 'cyan',
     fecha: 'Dic. 2024',
     descripcion:
-      'Acreditación académica en diseño relacional, normalización de datos, procedimientos almacenados, triggers, transacciones ACID y optimización de consultas en SQL Server y Oracle.',
-    habilidades: ['SQL Server', 'Oracle', 'Modelamiento Relacional', 'Optimización SQL'],
-    idCertificado: 'ACR-BD-2024-DUOC',
-    enlaceUrl: '/docs/5c6a45c9-bb80-4469-a494-eb095eac455c.pdf',
-    textoEnlace: 'Ver Acreditación',
-    esEnlaceExterno: true
+      'Certificación internacional de inglés orientada al entorno profesional, habilitando la lectura de documentación técnica y comunicación en equipos de trabajo.',
+    habilidades: ['Inglés Técnico', 'Comprensión Lectora', 'Comunicación Profesional'],
+    idCertificado: '26731371'
   }
 ];
