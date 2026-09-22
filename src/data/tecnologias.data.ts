@@ -17,7 +17,10 @@ export const TECNOLOGIAS_FILA_1: ItemTecnologia[] = [
   { nombre: 'Python', categoria: 'backend', colorResaltado: 'text-yellow-400', rutaIcono: '/img/icons/python.svg' },
   { nombre: 'Django', categoria: 'backend', colorResaltado: 'text-emerald-400', rutaIcono: '/img/icons/django.svg' },
   { nombre: 'Express.js', categoria: 'backend', colorResaltado: 'text-slate-300', rutaIcono: '/img/icons/expressjs_dark.svg' },
-  { nombre: 'Docker', categoria: 'tools', colorResaltado: 'text-blue-400', rutaIcono: '/img/icons/docker.svg' }
+  { nombre: 'Docker', categoria: 'tools', colorResaltado: 'text-blue-400', rutaIcono: '/img/icons/docker.svg' },
+  { nombre: 'Netlify', categoria: 'tools', colorResaltado: 'text-blue-400', rutaIcono: '/img/icons/netlify.svg' },
+  { nombre: 'Railway', categoria: 'tools', colorResaltado: 'text-blue-400', rutaIcono: '/img/icons/railway_dark.svg' },
+  { nombre: 'Vercel', categoria: 'tools', colorResaltado: 'text-blue-400', rutaIcono: '/img/icons/vercel_dark.svg' }
 ];
 
 export const TECNOLOGIAS_FILA_2: ItemTecnologia[] = [

@@ -54,13 +54,13 @@ body {
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-25%);
   }
 }
 
 @keyframes marquee-right {
   0% {
-    transform: translateX(-50%);
+    transform: translateX(-25%);
   }
   100% {
     transform: translateX(0%);
@@ -97,11 +97,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: #0a090b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #824caf;
   border-radius: 4px;
 }
 

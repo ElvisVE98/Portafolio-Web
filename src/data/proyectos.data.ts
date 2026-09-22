@@ -37,6 +37,8 @@ export const PROYECTOS: Proyecto[] = [
     etiquetas: ['Python', 'Django', 'PostgreSQL', 'Business Intelligence', 'Scrum', 'Gemini AI'],
     enlaceDemo: 'https://clickbot.store/'
   },
+
+
   {
     id: 'tareo',
     titulo: 'Tareo — Gestor de Tareas Fullstack',
@@ -58,6 +60,31 @@ export const PROYECTOS: Proyecto[] = [
     ],
     enlaceDemo: 'https://tareoapp.netlify.app'
   },
+
+  {
+    id: 'resolva',
+    titulo: 'Resolva — Sistema de Gestión de Tickets de Soporte',
+    categoria: 'fullstack',
+    rutaImagen: '/img/projects/resolva.png',
+    descripcion:
+      'Plataforma fullstack de mesa de ayuda con control de acceso por roles (solicitante, soporte, administrador), auditoría completa de cambios de estado, adjuntos con URLs firmadas y paginación. Incluye flujo de autenticación con invitación por correo y recuperación de contraseña. Backend desplegado en Railway, frontend en Vercel.',
+    etiquetas: [
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Node.js',
+      'Express',
+      'PostgreSQL',
+      'shadcn/ui',
+      'Supabase',
+      'Vite',
+      'Zod'
+    ],
+    enlaceDemo: 'https://gestor-tickets-three.vercel.app/'
+  },
+
+
+
   {
     id: 'vyl-group',
     titulo: 'V&L Group SpA — Sitio Web Corporativo',
@@ -80,7 +107,7 @@ export const PROYECTOS: Proyecto[] = [
   {
     id: 'inventaflow',
     titulo: 'InventaFlow — Gestión de Activos & Inventario',
-    categoria: 'backend-datos',
+    categoria: 'fullstack',
     rutaImagen: '/img/projects/inventaflow.png',
     descripcion:
       'Plataforma web de gestión de inventario y activos desarrollada para uso empresarial real. Permite controlar equipos, dispositivos móviles, tablets y licencias de software asignadas a colaboradores, reemplazando planillas Excel. Incluye dashboard con KPIs y gráficos de costos por sucursal, historial de asignaciones y panel de administración.',
